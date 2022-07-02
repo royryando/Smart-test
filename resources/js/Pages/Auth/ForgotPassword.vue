@@ -1,13 +1,12 @@
 <template>
     <Head>
-        <title>Forgot Password - Aplikasi Kasir</title>
+        <title>Forgot Password - Aplikasi Smart Test</title>
     </Head>
     <div class="col-md-4">
         <div class="fade-in">
             <div class="text-center mb-4">
                 <a href="" class="text-dark text-decoration-none">
-                    <img src="/images/cash-machine.png" width="70">
-                    <h3 class="mt-2 font-weight-bold">APLIKASI KASIR</h3>
+                    <h3 class="mt-2 font-weight-bold">APLIKASI SMART TEST</h3>
                 </a>
             </div>
             <div class="card-group">

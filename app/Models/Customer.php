@@ -15,6 +15,6 @@ class Customer extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'no_telp', 'address'
+        'name', 'tempat_tgl_lahir', 'alamat','jenis_kelamin','no_hp','pendidikan','no_ktp'
     ];
 }
