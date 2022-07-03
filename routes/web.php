@@ -37,6 +37,8 @@ Route::prefix('apps')->group(function() {
         Route::resource('/products', \App\Http\Controllers\Apps\ProductController::class, ['as' => 'apps'])
         ->middleware('permission:products.index|products.create|products.edit|products.delete');
 
+        Route::post('/products/proses/{id}', [\App\Http\Controllers\Apps\ProductController::class, 'proses'])->name('apps.products.proses');
+
         //route resource customers
         Route::resource('/customers', \App\Http\Controllers\Apps\CustomerController::class, ['as' => 'apps'])
             ->middleware('permission:customers.index|customers.create|customers.edit|customers.delete');

@@ -19,7 +19,7 @@ class Profit extends Model
     protected $fillable = [
         'transaction_id', 'total'
     ];
-
+ 
     /**
      * transaction
      *

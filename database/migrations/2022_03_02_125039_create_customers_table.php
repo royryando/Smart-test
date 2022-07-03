@@ -16,8 +16,12 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('no_telp');
-            $table->text('address');
+            $table->string('tempat_tgl_lahir');
+            $table->text('alamat');
+            $table->string('jenis_kelamin');
+            $table->integer('no_hp');
+            $table->string('pendidikan');
+            $table->integer('no_ktp');
             $table->timestamps();
         });
     }

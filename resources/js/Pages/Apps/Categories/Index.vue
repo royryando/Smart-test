@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Categories - Aplikasi Kasir</title>
+        <title>Penilaian - Aplikasi Smart Test</title>
     </Head>
     <main class="c-main">
         <div class="container-fluid">
@@ -9,7 +9,7 @@
                     <div class="col-md-12">
                         <div class="card border-0 rounded-3 shadow border-top-purple">
                             <div class="card-header">
-                                <span class="font-weight-bold"><i class="fa fa-folder"></i> CATEGORIES</span>
+                                <span class="font-weight-bold"><i class="fa fa-folder"></i> Penilaian</span>
                             </div>
                             <div class="card-body">
                                 <form @submit.prevent="handleSearch">

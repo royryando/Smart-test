@@ -16,7 +16,7 @@ class Product extends Model
      * @var array
      */
     protected $fillable = [
-        'image', 'barcode', 'title', 'description', 'buy_price', 'sell_price', 'category_id', 'stock'
+        'customer_id', 'kelengkapan_administrasi', 'tes_fisik', 'tes_matematika', 'tes_bahasa'
     ];
 
     /**
@@ -24,9 +24,9 @@ class Product extends Model
      *
      * @return void
      */
-    public function category()
+    public function customer()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Customer::class);
     }
 
     /**

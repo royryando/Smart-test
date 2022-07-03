@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Add New Customer - Aplikasi Kasir</title>
+        <title>Tambah Data Peserta - Aplikasi Smart Test</title>
     </Head>
     <main class="c-main">
         <div class="container-fluid">

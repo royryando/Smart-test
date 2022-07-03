@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Apps;
 
 use Inertia\Inertia;
 use App\Models\Product;
-use App\Models\Category;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -23,9 +23,13 @@ class ProductController extends Controller
             $products = $products->where('title', 'like', '%'. request()->q . '%');
         })->latest()->paginate(5);
 
+        $penilaian_view= Product::with('customer')->get();
+ 
+
         //return inertia
         return Inertia::render('Apps/Products/Index', [
             'products' => $products,
+            'penilaian_view' => $penilaian_view
         ]);
     }
 
@@ -37,11 +41,11 @@ class ProductController extends Controller
     public function create()
     {
         //get categories
-        $categories = Category::all();
+        $customers = Customer::orderBy('name','ASC')->get();
 
         //return inertia
         return Inertia::render('Apps/Products/Create', [
-            'categories' => $categories
+            'customers' => $customers
         ]);
     }
 
@@ -57,30 +61,27 @@ class ProductController extends Controller
          * validate
          */
         $this->validate($request, [
-            'image'         => 'required|image|mimes:jpeg,jpg,png|max:2000',
-            'barcode'       => 'required|unique:products',
-            'title'         => 'required',
-            'description'   => 'required',
-            'category_id'   => 'required',
-            'buy_price'     => 'required',
-            'sell_price'    => 'required',
-            'stock'         => 'required',
+            'customer_id'                           => 'required',
+            // 'image'         => 'required|image|mimes:jpeg,jpg,png|max:2000',
+            // 'barcode'       => 'required|unique:products',
+            'kelengkapan_administrasi'          => 'required',
+            'tes_fisik'                         => 'required',
+            'tes_matematika'                    => 'required',
+            'tes_bahasa'                        => 'required',
         ]);
 
         //upload image
-        $image = $request->file('image');
-        $image->storeAs('public/products', $image->hashName());
+        // $image = $request->file('image');
+        // $image->storeAs('public/products', $image->hashName());
 
         //create product
         Product::create([
-            'image'         => $image->hashName(),
-            'barcode'       => $request->barcode,
-            'title'         => $request->title,
-            'description'   => $request->description,
-            'category_id'   => $request->category_id,
-            'buy_price'     => $request->buy_price,
-            'sell_price'    => $request->sell_price,
-            'stock'         => $request->stock,
+            // 'image'         => $image->hashName(),
+            'customer_id'                   => $request->customer_id,
+            'kelengkapan_administrasi'      => $request->kelengkapan_administrasi,
+            'tes_fisik'                     => $request->tes_fisik,
+            'tes_matematika'                => $request->tes_matematika,
+            'tes_bahasa'                    => $request->tes_bahasa,
         ]);
 
         //redirect
@@ -96,11 +97,11 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         //get categories
-        $categories = Category::all();
+        $customers = Customer::orderBy('name','ASC')->get();
 
         return Inertia::render('Apps/Products/Edit', [
             'product' => $product,
-            'categories' => $categories
+            'customers' => $customers
         ]);
     }
 
@@ -117,48 +118,44 @@ class ProductController extends Controller
          * validate
          */
         $this->validate($request, [
-            'barcode'       => 'required|unique:products,barcode,'.$product->id,
-            'title'         => 'required',
-            'description'   => 'required',
-            'category_id'   => 'required',
-            'buy_price'     => 'required',
-            'sell_price'    => 'required',
-            'stock'         => 'required',
+            'customer_id'                       => 'required',
+            'kelengkapan_administrasi'          => 'required',
+            'tes_fisik'                         => 'required',
+            'tes_matematika'                    => 'required',
+            'tes_bahasa'                        => 'required',
         ]);
 
         //check image update
-        if ($request->file('image')) {
+        // if ($request->file('image')) {
 
-            //remove old image
-            Storage::disk('local')->delete('public/products/'.basename($product->image));
+        //     //remove old image
+        //     Storage::disk('local')->delete('public/products/'.basename($product->image));
         
-            //upload new image
-            $image = $request->file('image');
-            $image->storeAs('public/products', $image->hashName());
+        //     //upload new image
+        //     $image = $request->file('image');
+        //     $image->storeAs('public/products', $image->hashName());
 
-            //update product with new image
-            $product->update([
-                'image'=> $image->hashName(),
-                'barcode'       => $request->barcode,
-                'title'         => $request->title,
-                'description'   => $request->description,
-                'category_id'   => $request->category_id,
-                'buy_price'     => $request->buy_price,
-                'sell_price'    => $request->sell_price,
-                'stock'         => $request->stock,
-            ]);
+        //     //update product with new image
+        //     $product->update([
+        //         'image'=> $image->hashName(),
+        //         'barcode'       => $request->barcode,
+        //         'title'         => $request->title,
+        //         'description'   => $request->description,
+        //         'category_id'   => $request->category_id,
+        //         'buy_price'     => $request->buy_price,
+        //         'sell_price'    => $request->sell_price,
+        //         'stock'         => $request->stock,
+        //     ]);
 
-        }
+        // }
 
         //update product without image
         $product->update([
-            'barcode'       => $request->barcode,
-            'title'         => $request->title,
-            'description'   => $request->description,
-            'category_id'   => $request->category_id,
-            'buy_price'     => $request->buy_price,
-            'sell_price'    => $request->sell_price,
-            'stock'         => $request->stock,
+            'customer_id'                       => $request->customer_id,
+            'kelengkapan_administrasi'          => $request->kelengkapan_administrasi,
+            'tes_fisik'                         => $request->tes_fisik,
+            'tes_matematika'                    => $request->tes_matematika,
+            'tes_bahasa'                        => $request->tes_bahasa,
         ]);
 
         //redirect
@@ -176,13 +173,51 @@ class ProductController extends Controller
         //find by ID
         $product = Product::findOrFail($id);
 
+        
+
         //remove image
-        Storage::disk('local')->delete('public/products/'.basename($product->image));
+        // Storage::disk('local')->delete('public/products/'.basename($product->image));
 
         //delete
         $product->delete();
 
         //redirect
         return redirect()->route('apps.products.index');
+    }
+
+    public function proses(Request $request, $id)
+    {
+        //find by ID
+        $proses = Product::select('kelengkapan_administrasi','tes_fisik','tes_matematika','tes_bahasa')
+                ->where('id','=',$id) 
+                ->get();
+        $rata_nilai = 0;
+        foreach ($proses as $nilai_peserta) {
+            $rata_nilai = $rata_nilai + $nilai_peserta->kelengkapan_administrasi;
+            $rata_nilai = $rata_nilai + $nilai_peserta->tes_fisik;
+            $rata_nilai = $rata_nilai + $nilai_peserta->tes_matematika;
+            $rata_nilai = $rata_nilai + $nilai_peserta->tes_bahasa;
+        }
+        $result_nilai = $rata_nilai / 4;
+
+        //remove image
+        // Storage::disk('local')->delete('public/products/'.basename($product->image));
+
+        //delete
+        // $product->delete();
+
+        //redirect
+        Product::create([
+            // 'image'         => $image->hashName(),
+            'customer_id'                   => $request->customer_id,
+            'kelengkapan_administrasi'      => $request->kelengkapan_administrasi,
+            'tes_fisik'                     => $request->tes_fisik,
+            'tes_matematika'                => $request->tes_matematika,
+            'tes_bahasa'                    => $request->tes_bahasa,
+        ]);
+
+        //redirect
+        return redirect()->route('apps.products.index');
+        // return redirect()->route('apps.products.index');
     }
 }

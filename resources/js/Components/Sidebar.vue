@@ -23,25 +23,30 @@
             </Link>
         </li>
 
-        <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['categories.index'])">
-            <Link class="c-sidebar-nav-link" href="/apps/categories" :class="{ 'active': $page.url.startsWith('/apps/categories') }">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder" viewBox="0 0 16 16">
-                <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z" />
-            </svg>
-            <span class="ms-2">Categories</span>
-            </Link>
-        </li>
-
         <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['products.index'])">
             <Link class="c-sidebar-nav-link" href="/apps/products" :class="{ 'active': $page.url.startsWith('/apps/products') }">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
-                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart" viewBox="0 0 16 16">
+                <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z" />
             </svg>
-            <span class="ms-2">Products</span>
+            <span class="ms-2">Penilaian</span>
             </Link>
         </li>
 
-        <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['transactions.index'])">TRANSACTIONS</li>
+
+        <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['categories.index'])">REPORTS</li>
+
+        <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['categories.index'])">
+            <Link class="c-sidebar-nav-link" href="/apps/categories" :class="{ 'active': $page.url.startsWith('/apps/categories') }">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z" />
+            </svg>
+            <span class="ms-2">Hasil</span>
+            </Link>
+        </li>
+
+
+
+        <!-- <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['transactions.index'])">TRANSACTIONS</li>
 
         <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['transactions.index'])">
             <Link class="c-sidebar-nav-link" href="/apps/transactions" :class="{ 'active': $page.url.startsWith('/apps/transactions') }">
@@ -50,11 +55,11 @@
             </svg>
             <span class="ms-2">Transactions</span>
             </Link>
-        </li>
+        </li> -->
 
-        <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['sales.index']) || hasAnyPermission(['profits.index'])">REPORTS</li>
+        <!-- <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['sales.index']) || hasAnyPermission(['profits.index'])">REPORTS</li> -->
 
-        <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['sales.index'])">
+        <!-- <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['sales.index'])">
             <Link class="c-sidebar-nav-link" href="/apps/sales" :class="{ 'active': $page.url.startsWith('/apps/sales') }">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart" viewBox="0 0 16 16">
                     <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z" />
@@ -69,7 +74,7 @@
                 </svg>
                 <span class="ms-2">Report Profits</span>
             </Link>
-        </li>
+        </li> -->
 
         <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['roles.index']) || hasAnyPermission(['permissions.index']) || hasAnyPermission(['users.index'])">USER MANAGEMENT</li>
 

@@ -15,18 +15,15 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id');
-            $table->string('image');
-            $table->string('barcode')->unique();
-            $table->string('title');
-            $table->text('description');
-            $table->bigInteger('buy_price');
-            $table->bigInteger('sell_price');
-            $table->integer('stock');
+            $table->unsignedBigInteger('customer_id');
+            $table->string('kelengkapan_administrasi');
+            $table->float('tes_fisik');
+            $table->float('tes_matematika');
+            $table->float('tes_bahasa');
             $table->timestamps();
 
             //relationship categories
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('customer_id')->references('id')->on('customers');
         });
     }
 

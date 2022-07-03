@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Add New Product - Aplikasi Kasir</title>
+        <title>Tambah Penilaian - Aplikasi SMART TEST</title>
     </Head>
     <main class="c-main">
         <div class="container-fluid">
@@ -9,87 +9,64 @@
                     <div class="col-md-12">
                         <div class="card border-0 rounded-3 shadow border-top-purple">
                             <div class="card-header">
-                                <span class="font-weight-bold"><i class="fa fa-shopping-bag"></i> ADD NEW PRODUCT</span>
+                                <span class="font-weight-bold"><i class="fa fa-shopping-bag"></i> Tambah Nilai</span>
                             </div>
                             <div class="card-body">
 
                                 <form @submit.prevent="submit">
-                                    <div class="mb-3">
+                                    <!-- <div class="mb-3">
                                         <input class="form-control" @input="form.image = $event.target.files[0]" :class="{ 'is-invalid': errors.image }" type="file">
                                     </div>
                                     <div v-if="errors.image" class="alert alert-danger">
                                         {{ errors.image }}
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label class="fw-bold">Barcode</label>
-                                                <input class="form-control" v-model="form.barcode" :class="{ 'is-invalid': errors.barcode }" type="text" placeholder="Barcode / Code Product">
-                                            </div>
-                                            <div v-if="errors.barcode" class="alert alert-danger">
-                                                {{ errors.barcode }}
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label class="fw-bold">Category</label>
-                                                <select class="form-select" :class="{ 'is-invalid': errors.category_id }" v-model="form.category_id">
-                                                    <option v-for="(category, index) in categories" :key="index" :value="category.id">{{ category.name }}</option>
-                                                </select>
-                                            </div>
-                                            <div v-if="errors.category_id" class="alert alert-danger">
-                                                {{ errors.category_id }}
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label class="fw-bold">Title Product</label>
-                                                <input class="form-control" v-model="form.title" :class="{ 'is-invalid': errors.title }" type="text" placeholder="Title Product">
-                                            </div>
-                                            <div v-if="errors.title" class="alert alert-danger">
-                                                {{ errors.title }}
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="mb-3">
-                                                <label class="fw-bold">Stock</label>
-                                                <input class="form-control" v-model="form.stock" :class="{ 'is-invalid': errors.stock }" type="number" placeholder="Stock">
-                                            </div>
-                                            <div v-if="errors.stock" class="alert alert-danger">
-                                                {{ errors.stock }}
-                                            </div>
-                                        </div>
-                                    </div>
-
+                                    </div> -->
                                     <div class="mb-3">
-                                        <label class="fw-bold">Description</label>
-                                        <textarea class="form-control" v-model="form.description" :class="{ 'is-invalid': errors.description }" type="text" rows="4" placeholder="Description"></textarea>
+                                        <label class="fw-bold">Nama Lengkap Peserta</label>
+                                        <select class="form-select" :class="{ 'is-invalid': errors.customer_id }" v-model="form.customer_id">
+                                            <option v-for="(customer, index) in customers" :key="index" :value="customer.id">{{ customer.name }}</option>
+                                        </select>
                                     </div>
-                                    <div v-if="errors.description" class="alert alert-danger">
-                                        {{ errors.description }}
+                                    <div v-if="errors.customer_id" class="alert alert-danger">
+                                        {{ errors.customer_id }}
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label class="fw-bold">Buy Price</label>
-                                                <input class="form-control" v-model="form.buy_price" :class="{ 'is-invalid': errors.buy_price }" type="number" placeholder="Buy Price">
+                                                <label class="fw-bold">Kelengkapan Administrasi</label>
+                                                <input class="form-control" v-model="form.kelengkapan_administrasi" :class="{ 'is-invalid': errors.kelengkapan_administrasi }" type="text" placeholder="Kelengkapan Administrasi">
                                             </div>
-                                            <div v-if="errors.buy_price" class="alert alert-danger">
-                                                {{ errors.buy_price }}
+                                            <div v-if="errors.kelengkapan_administrasi" class="alert alert-danger">
+                                                {{ errors.kelengkapan_administrasi }}
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label class="fw-bold">Sell Price</label>
-                                                <input class="form-control" v-model="form.sell_price" :class="{ 'is-invalid': errors.sell_price }" type="number" placeholder="Sell Price">
+                                                <label class="fw-bold">Nilai Tes Fisik</label>
+                                                <input class="form-control" v-model="form.tes_fisik" :class="{ 'is-invalid': errors.tes_fisik }" type="number" placeholder="Nilai Tes Fisik">
                                             </div>
-                                            <div v-if="errors.sell_price" class="alert alert-danger">
-                                                {{ errors.sell_price }}
+                                            <div v-if="errors.tes_fisik" class="alert alert-danger">
+                                                {{ errors.tes_fisik }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="fw-bold">Nilai Tes Matematika</label>
+                                                <input class="form-control" v-model="form.tes_matematika" :class="{ 'is-invalid': errors.tes_matematika }" type="number" placeholder="Nilai Tes Matematika">
+                                            </div>
+                                            <div v-if="errors.tes_matematika" class="alert alert-danger">
+                                                {{ errors.tes_matematika }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="fw-bold">Nilai Tes Bahasa</label>
+                                                <input class="form-control" v-model="form.tes_bahasa" :class="{ 'is-invalid': errors.tes_bahasa }" type="number" placeholder="Nilai Tes Bahasa">
+                                            </div>
+                                            <div v-if="errors.tes_bahasa" class="alert alert-danger">
+                                                {{ errors.tes_bahasa }}
                                             </div>
                                         </div>
                                     </div>
@@ -140,7 +117,7 @@
         //props
         props: {
             errors: Object,
-            categories: Array
+            customers: Array
         },
 
         //composition API
@@ -148,14 +125,11 @@
 
             //define form with reactive
             const form = reactive({
-                image: '',
-                barcode: '',
-                category_id: '',
-                title: '',
-                description: '',
-                buy_price: '',
-                sell_price: '',
-                stock: ''
+                customer_id: '',
+                kelengkapan_administrasi: '',
+                tes_fisik: '',
+                tes_matematika: '',
+                tes_bahasa: ''
             });
 
             //method "submit"
@@ -164,14 +138,11 @@
                 //send data to server
                 Inertia.post('/apps/products', {
                     //data
-                    image: form.image,
-                    barcode: form.barcode,
-                    category_id: form.category_id,
-                    title: form.title,
-                    description: form.description,
-                    buy_price: form.buy_price,
-                    sell_price: form.sell_price,
-                    stock: form.stock
+                    customer_id: form.customer_id,
+                    kelengkapan_administrasi: form.kelengkapan_administrasi,
+                    tes_fisik: form.tes_fisik,
+                    tes_matematika: form.tes_matematika,
+                    tes_bahasa: form.tes_bahasa
                 }, {
                     onSuccess: () => {
                         //show success alert
