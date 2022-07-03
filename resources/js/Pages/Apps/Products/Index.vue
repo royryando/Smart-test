@@ -150,7 +150,7 @@
             }
             const proses = (id) => {
                 //send to server
-                axios.post(`/apps/products/proses/${id}`).then(response => {
+                axios.post(`/apps/profits/proses/${id}`).then(response => {
                     if(response.data.success) {
 
                         //assign response to state "product"

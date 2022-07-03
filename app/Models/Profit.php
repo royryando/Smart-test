@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use App\Models\Customer;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -17,7 +19,7 @@ class Profit extends Model
      * @var array
      */
     protected $fillable = [
-        'transaction_id', 'total'
+        'customer_id','product_id','nilai','kategori'
     ];
  
     /**
@@ -25,9 +27,14 @@ class Profit extends Model
      *
      * @return void
      */
-    public function transaction()
+
+    public function product()
     {
-        return $this->belongsTo(Transaction::class);
+        return $this->belongsTo(Product::class);
+    }
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
     }
 
     /**

@@ -22,4 +22,13 @@ class Customer extends Model
     {
         return $this->hasMany(Product::class);
     }
+    public function profit()
+    {
+        return $this->hasMany(Profit::class);
+    }
+
+    // public function profit()
+    // {
+    //     return $this->belongsTo(Customer::class);
+    // }
 }

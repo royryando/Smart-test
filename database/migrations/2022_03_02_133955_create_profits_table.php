@@ -15,12 +15,15 @@ return new class extends Migration
     {
         Schema::create('profits', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('transaction_id');
-            $table->bigInteger('total');
+            $table->unsignedBigInteger('customer_id');
+            $table->unsignedBigInteger('product_id');
+            $table->float('nilai');
+            $table->string('kategori');
             $table->timestamps();
 
             //relationship transactions
-            $table->foreign('transaction_id')->references('id')->on('transactions');
+            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('product_id')->references('id')->on('products');
         });
     }
 

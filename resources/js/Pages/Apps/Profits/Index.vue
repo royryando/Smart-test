@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Report Profits - Aplikasi Kasir</title>
+        <title>Report Penilaian - Aplikasi SMART TEST</title>
     </Head>
     <main class="c-main">
         <div class="container-fluid">
@@ -9,7 +9,7 @@
                     <div class="col-md-12">
                         <div class="card border-0 rounded-3 shadow border-top-purple">
                             <div class="card-header">
-                                <span class="font-weight-bold"><i class="fa fa-chart-line"></i> REPORT PROFITS</span>
+                                <span class="font-weight-bold"><i class="fa fa-chart-line"></i> REPORT PENILAIAN</span>
                             </div>
                             <div class="card-body">
                                 <form @submit.prevent="filter">
@@ -51,19 +51,17 @@
                                         <thead>
                                             <tr style="background-color: #e6e6e7;">
                                                 <th scope="col">Date</th>
-                                                <th scope="col">Invoice</th>
-                                                <th scope="col">Total</th>
+                                                <th scope="col">Nama Peserta</th>
+                                                <th scope="col">Nilai Hasil Peserta</th>
+                                                <th scope="col">Kategori</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr v-for="profit in profits" :key="profit.id">
                                                 <td>{{ profit.created_at }}</td>
-                                                <td class="text-center">{{ profit.transaction.invoice }}</td>
-                                                <td class="text-end">Rp. {{ formatPrice(profit.total) }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2" class="text-end fw-bold" style="background-color: #e6e6e7;">TOTAL</td>
-                                                <td class="text-end fw-bold" style="background-color: #e6e6e7;">Rp. {{ formatPrice(total) }}</td>
+                                                <td class="text-center">{{ profit.customer.name }}</td>
+                                                <td class="text-center">{{ profit.nilai }}</td>
+                                                <td class="text-center">{{ profit.kategori }}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -104,8 +102,7 @@
         //props
         props: {
             errors: Object,
-            profits: Array,
-            total: Number
+            profits: Array
         },
 
         //composition API

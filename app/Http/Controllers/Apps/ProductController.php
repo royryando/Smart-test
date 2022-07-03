@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Apps;
 use Inertia\Inertia;
 use App\Models\Product;
 use App\Models\Customer;
+use App\Models\Profit;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -105,13 +106,6 @@ class ProductController extends Controller
         ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Product $product)
     {
         /**
@@ -124,30 +118,6 @@ class ProductController extends Controller
             'tes_matematika'                    => 'required',
             'tes_bahasa'                        => 'required',
         ]);
-
-        //check image update
-        // if ($request->file('image')) {
-
-        //     //remove old image
-        //     Storage::disk('local')->delete('public/products/'.basename($product->image));
-        
-        //     //upload new image
-        //     $image = $request->file('image');
-        //     $image->storeAs('public/products', $image->hashName());
-
-        //     //update product with new image
-        //     $product->update([
-        //         'image'=> $image->hashName(),
-        //         'barcode'       => $request->barcode,
-        //         'title'         => $request->title,
-        //         'description'   => $request->description,
-        //         'category_id'   => $request->category_id,
-        //         'buy_price'     => $request->buy_price,
-        //         'sell_price'    => $request->sell_price,
-        //         'stock'         => $request->stock,
-        //     ]);
-
-        // }
 
         //update product without image
         $product->update([
@@ -162,12 +132,6 @@ class ProductController extends Controller
         return redirect()->route('apps.products.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //find by ID
@@ -185,39 +149,5 @@ class ProductController extends Controller
         return redirect()->route('apps.products.index');
     }
 
-    public function proses(Request $request, $id)
-    {
-        //find by ID
-        $proses = Product::select('kelengkapan_administrasi','tes_fisik','tes_matematika','tes_bahasa')
-                ->where('id','=',$id) 
-                ->get();
-        $rata_nilai = 0;
-        foreach ($proses as $nilai_peserta) {
-            $rata_nilai = $rata_nilai + $nilai_peserta->kelengkapan_administrasi;
-            $rata_nilai = $rata_nilai + $nilai_peserta->tes_fisik;
-            $rata_nilai = $rata_nilai + $nilai_peserta->tes_matematika;
-            $rata_nilai = $rata_nilai + $nilai_peserta->tes_bahasa;
-        }
-        $result_nilai = $rata_nilai / 4;
-
-        //remove image
-        // Storage::disk('local')->delete('public/products/'.basename($product->image));
-
-        //delete
-        // $product->delete();
-
-        //redirect
-        Product::create([
-            // 'image'         => $image->hashName(),
-            'customer_id'                   => $request->customer_id,
-            'kelengkapan_administrasi'      => $request->kelengkapan_administrasi,
-            'tes_fisik'                     => $request->tes_fisik,
-            'tes_matematika'                => $request->tes_matematika,
-            'tes_bahasa'                    => $request->tes_bahasa,
-        ]);
-
-        //redirect
-        return redirect()->route('apps.products.index');
-        // return redirect()->route('apps.products.index');
-    }
+    
 }

@@ -37,8 +37,6 @@ Route::prefix('apps')->group(function() {
         Route::resource('/products', \App\Http\Controllers\Apps\ProductController::class, ['as' => 'apps'])
         ->middleware('permission:products.index|products.create|products.edit|products.delete');
 
-        Route::post('/products/proses/{id}', [\App\Http\Controllers\Apps\ProductController::class, 'proses'])->name('apps.products.proses');
-
         //route resource customers
         Route::resource('/customers', \App\Http\Controllers\Apps\CustomerController::class, ['as' => 'apps'])
             ->middleware('permission:customers.index|customers.create|customers.edit|customers.delete');
@@ -75,6 +73,8 @@ Route::prefix('apps')->group(function() {
 
         //route profits index
         Route::get('/profits', [\App\Http\Controllers\Apps\ProfitController::class, 'index'])->middleware('permission:profits.index')->name('apps.profits.index');
+
+        Route::post('/profits/proses/{id}', [\App\Http\Controllers\Apps\ProfitController::class, 'proses'])->name('apps.profits.proses');
 
         //route profits filter
         Route::get('/profits/filter', [\App\Http\Controllers\Apps\ProfitController::class, 'filter'])->name('apps.profits.filter');

@@ -29,6 +29,11 @@ class Product extends Model
         return $this->belongsTo(Customer::class);
     }
 
+    public function profit()
+    {
+        return $this->hasMany(Profit::class);
+    }
+
     /**
      * image
      *
