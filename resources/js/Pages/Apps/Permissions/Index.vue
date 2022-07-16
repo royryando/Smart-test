@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Permissions - Aplikasi Kasir</title>
+        <title>Permissions - Aplikasi Smart Test</title>
     </Head>
     <main class="c-main">
         <div class="container-fluid">
