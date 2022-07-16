@@ -1,7 +1,7 @@
 <template>
 
     <Head>
-        <title>Dashboard - Aplikasi Coba rubah</title>
+        <title>Dashboard - Aplikasi Smart Test</title>
     </Head>
 
     <main class="c-main">

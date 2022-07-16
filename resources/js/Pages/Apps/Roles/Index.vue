@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Roles - Aplikasi Kasir</title>
+        <title>Roles - Aplikasi Smart Test</title>
     </Head>
     <main class="c-main">
         <div class="container-fluid">
