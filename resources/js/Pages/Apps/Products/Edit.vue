@@ -9,7 +9,7 @@
                     <div class="col-md-12">
                         <div class="card border-0 rounded-3 shadow border-top-purple">
                             <div class="card-header">
-                                <span class="font-weight-bold"><i class="fa fa-shopping-bag"></i> Edit Nilai Peserta</span>
+                                <span class="font-weight-bold"><i class="fa fa-pencil-alt me-1"></i> Edit Nilai Peserta</span>
                             </div>
                             <div class="card-body">
 

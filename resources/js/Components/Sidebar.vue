@@ -11,9 +11,9 @@
             </Link>
         </li>
 
-        <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['categories.index']) || hasAnyPermission(['products.index'])">MASTER</li>
+        <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['kriteria.index']) || hasAnyPermission(['nilai.index'])">MASTER</li>
 
-        <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['customers.index'])">
+        <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['peserta.index'])">
             <Link class="c-sidebar-nav-link" href="/apps/customers" :class="{ 'active': $page.url.startsWith('/apps/customers') }">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                 <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -23,7 +23,7 @@
             </Link>
         </li>
 
-        <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['products.index'])">
+        <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['nilai.index'])">
             <Link class="c-sidebar-nav-link" href="/apps/products" :class="{ 'active': $page.url.startsWith('/apps/products') }">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart" viewBox="0 0 16 16">
                 <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z" />
@@ -33,9 +33,9 @@
         </li>
 
 
-        <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['profits.index'])">REPORTS</li>
+        <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['hasil.index'])">REPORTS</li>
 
-        <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['profits.index'])">
+        <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['hasil.index'])">
             <Link class="c-sidebar-nav-link" href="/apps/profits" :class="{ 'active': $page.url.startsWith('/apps/profits') }">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z" />
@@ -43,38 +43,6 @@
             <span class="ms-2">Hasil</span>
             </Link>
         </li>
-
-
-
-        <!-- <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['transactions.index'])">TRANSACTIONS</li>
-
-        <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['transactions.index'])">
-            <Link class="c-sidebar-nav-link" href="/apps/transactions" :class="{ 'active': $page.url.startsWith('/apps/transactions') }">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
-            </svg>
-            <span class="ms-2">Transactions</span>
-            </Link>
-        </li> -->
-
-        <!-- <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['sales.index']) || hasAnyPermission(['profits.index'])">REPORTS</li> -->
-
-        <!-- <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['sales.index'])">
-            <Link class="c-sidebar-nav-link" href="/apps/sales" :class="{ 'active': $page.url.startsWith('/apps/sales') }">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart" viewBox="0 0 16 16">
-                    <path d="M4 11H2v3h2v-3zm5-4H7v7h2V7zm5-5v12h-2V2h2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1h-2zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3z" />
-                </svg>
-                <span class="ms-2">Report Sales</span>
-            </Link>
-        </li>
-        <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['profits.index'])">
-            <Link class="c-sidebar-nav-link" href="/apps/profits" :class="{ 'active': $page.url.startsWith('/apps/profits') }">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up-arrow" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5Z" />
-                </svg>
-                <span class="ms-2">Report Profits</span>
-            </Link>
-        </li> -->
 
         <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['roles.index']) || hasAnyPermission(['permissions.index']) || hasAnyPermission(['users.index'])">USER MANAGEMENT</li>
 

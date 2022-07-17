@@ -31,15 +31,15 @@ Route::prefix('apps')->group(function() {
 
         //route resource categories
         Route::resource('/categories', \App\Http\Controllers\Apps\CategoryController::class, ['as' => 'apps'])
-            ->middleware('permission:categories.index|categories.create|categories.edit|categories.delete');    
+            ->middleware('permission:kriteria.index|kriteria.create|kriteria.edit|kriteria.delete');    
     
         //route resource products
         Route::resource('/products', \App\Http\Controllers\Apps\ProductController::class, ['as' => 'apps'])
-        ->middleware('permission:products.index|products.create|products.edit|products.delete');
+        ->middleware('permission:nilai.index|nilai.create|nilai.edit|nilai.delete');
 
         //route resource customers
         Route::resource('/customers', \App\Http\Controllers\Apps\CustomerController::class, ['as' => 'apps'])
-            ->middleware('permission:customers.index|customers.create|customers.edit|customers.delete');
+            ->middleware('permission:peserta.index|peserta.create|peserta.edit|peserta.delete');
 
         //route transaction
         Route::get('/transactions', [\App\Http\Controllers\Apps\TransactionController::class, 'index'])->name('apps.transactions.index');
@@ -72,7 +72,7 @@ Route::prefix('apps')->group(function() {
         Route::get('/sales/pdf', [\App\Http\Controllers\Apps\SaleController::class, 'pdf'])->name('apps.sales.pdf');
 
         //route profits index
-        Route::get('/profits', [\App\Http\Controllers\Apps\ProfitController::class, 'index'])->middleware('permission:profits.index')->name('apps.profits.index');
+        Route::get('/profits', [\App\Http\Controllers\Apps\ProfitController::class, 'index'])->middleware('permission:hasil.index')->name('apps.profits.index');
 
         Route::post('/profits/proses/{id}', [\App\Http\Controllers\Apps\ProfitController::class, 'proses'])->name('apps.profits.proses');
 

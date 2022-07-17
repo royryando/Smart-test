@@ -14,7 +14,7 @@
                             <div class="card-body">
                                 <form @submit.prevent="handleSearch">
                                     <div class="input-group mb-3">
-                                        <Link href="/apps/customers/create" v-if="hasAnyPermission(['customers.create'])" class="btn btn-primary input-group-text"> <i class="fa fa-plus-circle me-2"></i> BUAT BARU</Link>
+                                        <Link href="/apps/customers/create" v-if="hasAnyPermission(['peserta.create'])" class="btn btn-primary input-group-text"> <i class="fa fa-plus-circle me-2"></i> BUAT BARU</Link>
                                         <input type="text" class="form-control" v-model="search" placeholder="search by customer name...">
 
                                         <button class="btn btn-primary input-group-text" type="submit"> <i class="fa fa-search me-2"></i> SEARCH</button>
@@ -44,8 +44,8 @@
                                             <td>{{ customer.pendidikan }}</td>
                                             <td>{{ customer.no_ktp }}</td>
                                             <td class="text-center">
-                                                <Link :href="`/apps/customers/${customer.id}/edit`" v-if="hasAnyPermission(['customers.edit'])" class="btn btn-success btn-sm me-2"><i class="fa fa-pencil-alt me-1"></i> EDIT</Link>
-                                                <button @click.prevent="destroy(customer.id)" v-if="hasAnyPermission(['customers.delete'])" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> DELETE</button>
+                                                <Link :href="`/apps/customers/${customer.id}/edit`" v-if="hasAnyPermission(['peserta.edit'])" class="btn btn-success btn-sm me-2"><i class="fa fa-pencil-alt me-1"></i> EDIT</Link>
+                                                <button @click.prevent="destroy(customer.id)" v-if="hasAnyPermission(['peserta.delete'])" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> DELETE</button>
                                             </td>
                                         </tr>
                                     </tbody>

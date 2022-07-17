@@ -10,7 +10,7 @@
 
                 <div class="row">
                     <div class="col-md-8">
-                        <div v-if="hasAnyPermission(['dashboard.sales_chart'])" class="card border-0 rounded-3 shadow border-top-purple">
+                        <div v-if="hasAnyPermission(['dashboard.index'])" class="card border-0 rounded-3 shadow border-top-purple">
                             <div class="card-header">
                                 <span class="font-weight-bold"><strong> SMART TEST </strong></span>
                             </div>
@@ -21,7 +21,7 @@
                     </div>
                     <div class="col-md-4">
 
-                        <div v-if="hasAnyPermission(['dashboard.sales_today'])" class="card border-0 rounded-3 shadow border-top-info mb-4">
+                        <div v-if="hasAnyPermission(['dashboard.index'])" class="card border-0 rounded-3 shadow border-top-info mb-4">
                             <div class="card-header">
                                 <span class="font-weight-bold"><i class="fa fa-chart-line"></i> JUMLAH PESERTA</span>
                             </div>
@@ -30,7 +30,7 @@
                             </div>
                         </div>
 
-                        <div v-if="hasAnyPermission(['dashboard.profits_today'])" class="card border-0 rounded-3 shadow border-top-success">
+                        <div v-if="hasAnyPermission(['dashboard.index'])" class="card border-0 rounded-3 shadow border-top-success">
                             <div class="card-header">
                                 <span class="font-weight-bold"><i class="fa fa-chart-bar"></i> AVARAGE NILAI</span>
                             </div>

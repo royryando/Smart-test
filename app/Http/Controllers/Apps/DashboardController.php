@@ -30,7 +30,7 @@ class DashboardController extends Controller
 
         return Inertia::render('Apps/Dashboard/Index', [
             'count_customer'    => (int) $count_customer,
-            'avarage_nilai'      => (int) $avarage_nilai
+            'avarage_nilai'      => (int) $avarage_nilai / $count_customer
         ]);
     }
 }

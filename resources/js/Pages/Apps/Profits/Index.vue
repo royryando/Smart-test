@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Report Penilaian - Aplikasi SMART TEST</title>
+        <title>Report Penilaian - Aplikasi Smart Test</title>
     </Head>
     <main class="c-main">
         <div class="container-fluid">
