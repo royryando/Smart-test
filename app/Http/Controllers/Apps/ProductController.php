@@ -41,9 +41,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //get categories
+        //get categories -> get data
         $customers = Customer::orderBy('name','ASC')->get();
-
         //return inertia
         return Inertia::render('Apps/Products/Create', [
             'customers' => $customers

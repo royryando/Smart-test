@@ -16,28 +16,6 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'image', 'name', 'description'
+        'rentang_awal', 'rentang_akhir','kategori'
     ];
-
-    /**
-     * products
-     *
-     * @return void
-     */
-    public function products()
-    {
-        return $this->hasMany(Product::class);
-    }
-
-    /**
-     * image
-     *
-     * @return Attribute
-     */
-    protected function image(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value) => asset('/storage/categories/' . $value),
-        );
-    }
 }

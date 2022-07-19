@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->string('name');
-            $table->text('description');
+            $table->float('rentang_awal');
+            $table->float('rentang_akhir');
+            $table->String('kategori');
             $table->timestamps();
         });
     }

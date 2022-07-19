@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Apps;
 use Inertia\Inertia;
 use App\Models\Profit;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Exports\ProfitsExport;
 use App\Http\Controllers\Controller;
@@ -42,21 +43,17 @@ class ProfitController extends Controller
         }
         $result_nilai = $rata_nilai / 4;
 
-        if($result_nilai <= 25){
-            $kategori = 'Cukup';
+        $categories = Category::all();
+        foreach($categories as $category){
+            if($category->rentang_awal <= $result_nilai && $result_nilai <= $category->rentang_akhir){
+                $kategori = $category->kategori;
+                break;
+            }
+            else{
+                $kategori = 'Tidak Terdefinisi';
+            }
         }
-        elseif(25<$result_nilai && $result_nilai<=50){
-            $kategori = 'Kurang Baik';
-        }
-        elseif(50<$result_nilai && $result_nilai<=75){
-            $kategori = 'Baik';
-        }
-        elseif(75<$result_nilai && $result_nilai<=100){
-            $kategori = 'Baik';
-        }
-        else{
-            $kategori = '-';
-        }
+        
 
         //remove image
         // Storage::disk('local')->delete('public/products/'.basename($product->image));
