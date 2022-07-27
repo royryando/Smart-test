@@ -48,16 +48,14 @@ class CategoryController extends Controller
          * validate
          */
         $this->validate($request, [
-            'rentang_awal'          => 'required',
-            'rentang_akhir'         => 'required',
-            'kategori'              => 'required',
+            'deskripsi'             => 'required',
+            'bobot'                 => 'required',
         ]);
 
         //update product without image
         $category->update([
-            'rentang_awal'      => $request->rentang_awal,
-            'rentang_akhir'     => $request->rentang_akhir,
-            'kategori'          => $request->kategori,
+            'deskripsi'      => $request->deskripsi,
+            'bobot'     => $request->bobot,
         ]);
 
         //redirect

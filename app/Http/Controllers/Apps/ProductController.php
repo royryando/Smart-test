@@ -20,17 +20,18 @@ class ProductController extends Controller
     public function index()
     {
         //get products
+        $customers = Customer::orderBy('name','ASC')->get();
         $products = Product::when(request()->q, function($products) {
             $products = $products->where('title', 'like', '%'. request()->q . '%');
         })->latest()->paginate(5);
-
         $penilaian_view= Product::with('customer')->get();
- 
-
+        $profits= Profit::with('customer')->get();
         //return inertia
         return Inertia::render('Apps/Products/Index', [
             'products' => $products,
-            'penilaian_view' => $penilaian_view
+            'penilaian_view' => $penilaian_view,
+            'customers' => $customers,
+            'profits' => $profits
         ]);
     }
 
@@ -44,7 +45,7 @@ class ProductController extends Controller
         //get categories -> get data
         $customers = Customer::orderBy('name','ASC')->get();
         //return inertia
-        return Inertia::render('Apps/Products/Create', [
+        return Inertia::render('Apps/Products/Index', [
             'customers' => $customers
         ]);
     }

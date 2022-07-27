@@ -11,6 +11,7 @@ use App\Exports\ProfitsExport;
 use App\Http\Controllers\Controller;
 use Maatwebsite\Excel\Facades\Excel;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\DB;
 
 class ProfitController extends Controller
 {
@@ -22,82 +23,74 @@ class ProfitController extends Controller
     public function index()
     {
         $customer= Profit::with('customer')->get();
-        return Inertia::render('Apps/Profits/Index', [
+        return Inertia::render('Apps/Products/Index', [
             'laporan' => $customer
         ]);
     }
-
-    public function proses(Request $request, $id)
+    public function clear ()
     {
-        //find by ID
-        $proses = Product::where('id','=',$id) ->get(); 
-        $rata_nilai = 0;
-        $kategori='';
-        $customer_id = '';
-        foreach ($proses as $nilai_peserta) {
-            $rata_nilai = $rata_nilai + $nilai_peserta->kelengkapan_administrasi;
-            $rata_nilai = $rata_nilai + $nilai_peserta->tes_fisik;
-            $rata_nilai = $rata_nilai + $nilai_peserta->tes_matematika;
-            $rata_nilai = $rata_nilai + $nilai_peserta->tes_bahasa;
-            $customer_id = $nilai_peserta->customer_id;
-        }
-        $result_nilai = $rata_nilai / 4;
+        $clear = Profit::truncate();
+        return redirect()->route('apps.products.index');
+    }
 
-        $categories = Category::all();
-        foreach($categories as $category){
-            if($category->rentang_awal <= $result_nilai && $result_nilai <= $category->rentang_akhir){
-                $kategori = $category->kategori;
-                break;
-            }
-            else{
-                $kategori = 'Tidak Terdefinisi';
-            }
+    public function proses(Request $request)
+    {
+        //Get value max in coloumn parameter
+        $max_kelengkapan_administrasi = DB::table('products')->max('kelengkapan_administrasi');
+        $max_tes_fisik = DB::table('products')->max('tes_fisik');
+        $max_tes_matematika = DB::table('products')->max('tes_matematika');
+        $max_tes_bahasa = DB::table('products')->max('tes_bahasa');
+
+        //Get value min in coloumn parameter
+        $min_kelengkapan_administrasi = Product::min('kelengkapan_administrasi');
+        // dd($min_kelengkapan_administrasi);
+        $min_tes_fisik = DB::table('products')->min('tes_fisik');
+        $min_tes_matematika = DB::table('products')->min('tes_matematika');
+        $min_tes_bahasa = DB::table('products')->min('tes_bahasa');
+
+        // calculate value bobot kriteria 
+        $jumlah_nilai_bobot = (int)DB::table('categories')->sum('bobot');
+        $nilai_bobot_kelengkapan_administrasi =(int) DB::table('categories')->select('bobot')->where('id','=','1')->sum('bobot');
+        $nilai_bobot_tes_fisik = (int) Category::select('bobot')->where('id','=','2')->sum('bobot');
+        $nilai_bobot_tes_matematika = (int) Category::select('bobot')->where('id','=','3')->sum('bobot');
+        $nilai_bobot_tes_bahasa = (int) Category::select('bobot')->where('id','=','4')->sum('bobot');
+        $nilai_bobot_kriteria_kelengkapan_administrasi = $nilai_bobot_kelengkapan_administrasi / $jumlah_nilai_bobot;
+        $nilai_bobot_kriteria_tes_fisik = $nilai_bobot_tes_fisik / $jumlah_nilai_bobot;
+        $nilai_bobot_kriteria_tes_matematika = $nilai_bobot_tes_matematika / $jumlah_nilai_bobot;
+        $nilai_bobot_kriteria_tes_bahasa = $nilai_bobot_tes_bahasa / $jumlah_nilai_bobot;
+
+        $nilai_users = Product::all();
+        foreach($nilai_users as $nilai_user){
+            $nilai_utility_kelengkapan_administrasi = (($nilai_user->kelengkapan_administrasi - $min_kelengkapan_administrasi) / ($max_kelengkapan_administrasi - $min_kelengkapan_administrasi)) * 100;
+            $nilai_utility_tes_fisik = (($nilai_user->tes_fisik - $min_tes_fisik) / ($max_tes_fisik - $min_tes_fisik)) * 100;
+            $nilai_utility_tes_matematika = (($nilai_user->tes_matematika - $min_tes_matematika) / ($max_tes_matematika - $min_tes_matematika)) * 100;
+            $nilai_utility_tes_bahasa = (($nilai_user->tes_bahasa - $min_tes_bahasa) / ($max_tes_bahasa - $min_tes_bahasa)) * 100;
+            $nilai_smarttest = ($nilai_utility_kelengkapan_administrasi * $nilai_bobot_kriteria_kelengkapan_administrasi) + ($nilai_utility_tes_fisik * $nilai_bobot_kriteria_tes_fisik) + ($nilai_utility_tes_matematika * $nilai_bobot_kriteria_tes_matematika) + ($nilai_utility_tes_bahasa * $nilai_bobot_kriteria_tes_bahasa);
+            
+            Profit::create([
+                'customer_id'                   => $nilai_user->customer_id,
+                'product_id'                    => $nilai_user->id,
+                'nilai'                         => $nilai_smarttest,
+                'kategori'                      => ''
+            ]);
         }
+
+        // $categories = Category::all();
+        // foreach($categories as $category){
+        //     if($category->rentang_awal <= $result_nilai && $result_nilai <= $category->rentang_akhir){
+        //         $kategori = $category->kategori;
+        //         break;
+        //     }
+        //     else{
+        //         $kategori = 'Tidak Terdefinisi';
+        //     }
+        // }
         
-
-        //remove image
-        // Storage::disk('local')->delete('public/products/'.basename($product->image));
-
-        //delete
-        // $product->delete();
-
-        //redirect
-        Profit::create([
-            'customer_id'                   => $customer_id,
-            'product_id'                    => $id,
-            'nilai'                         => $result_nilai,
-            'kategori'                      => $kategori,
-        ]);
 
         //redirect
         return redirect()->route('apps.products.index');
-        // return redirect()->route('apps.products.index');
     }
     
-    /**
-     * filter
-     *
-     * @param  mixed $request
-     * @return void
-     */
-    public function filter(Request $request)
-    {
-        $this->validate($request, [
-            'start_date'  => 'required',
-            'end_date'    => 'required',
-        ]);
-
-        //get data profits by range date
-        $profits = Profit::with('customer')->whereDate('created_at', '>=', $request->start_date)->whereDate('created_at', '<=', $request->end_date)->get();
-
-        //get total profit by range date    
-        // $total = Profit::whereDate('created_at', '>=', $request->start_date)->whereDate('created_at', '<=', $request->end_date)->sum('total');
-        
-        return Inertia::render('Apps/Profits/Index', [
-            'profits'   => $profits,
-            // 'total'     => (int) $total
-        ]);
-    }
 
     /**
      * export

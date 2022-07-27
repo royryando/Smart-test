@@ -74,7 +74,8 @@ Route::prefix('apps')->group(function() {
         //route profits index
         Route::get('/profits', [\App\Http\Controllers\Apps\ProfitController::class, 'index'])->middleware('permission:hasil.index')->name('apps.profits.index');
 
-        Route::post('/profits/proses/{id}', [\App\Http\Controllers\Apps\ProfitController::class, 'proses'])->name('apps.profits.proses');
+        Route::post('/profits/proses', [\App\Http\Controllers\Apps\ProfitController::class, 'proses'])->name('apps.profits.proses');
+        Route::post('/profits/clear', [\App\Http\Controllers\Apps\ProfitController::class, 'clear'])->name('apps.profits.clear');
 
         //route profits filter
         Route::get('/profits/filter', [\App\Http\Controllers\Apps\ProfitController::class, 'filter'])->name('apps.profits.filter');

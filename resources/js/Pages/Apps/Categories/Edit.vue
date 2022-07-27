@@ -15,25 +15,18 @@
 
                                 <form @submit.prevent="submit">
                                     <div class="mb-3">
-                                        <label class="fw-bold">Rentang Awal</label>
-                                        <input class="form-control" v-model="form.rentang_awal" :class="{ 'is-invalid': errors.rentang_awal }" type="float" placeholder="Rentang Awal">
+                                        <label class="fw-bold">Deskripsi</label>
+                                        <input class="form-control" v-model="form.deskripsi" :class="{ 'is-invalid': errors.deskripsi }" type="float" placeholder="Rentang Awal">
                                     </div>
-                                    <div v-if="errors.rentang_awal" class="alert alert-danger">
-                                        {{ errors.rentang_awal }}
-                                    </div>
-                                    <div class="mb-3">
-                                        <label class="fw-bold">Rentang Akhir</label>
-                                        <input class="form-control" v-model="form.rentang_akhir" :class="{ 'is-invalid': errors.rentang_akhir }" type="float" placeholder="Rentang Akhir">
-                                    </div>
-                                    <div v-if="errors.rentang_akhir" class="alert alert-danger">
-                                        {{ errors.rentang_akhir }}
+                                    <div v-if="errors.deskripsi" class="alert alert-danger">
+                                        {{ errors.deskripsi }}
                                     </div>
                                     <div class="mb-3">
-                                        <label class="fw-bold">Kategori</label>
-                                        <input class="form-control" v-model="form.kategori" :class="{ 'is-invalid': errors.kategori }" type="text" placeholder="Kategori">
+                                        <label class="fw-bold">Bobot</label>
+                                        <input class="form-control" v-model="form.bobot" :class="{ 'is-invalid': errors.bobot }" type="float" placeholder="Rentang Akhir">
                                     </div>
-                                    <div v-if="errors.kategori" class="alert alert-danger">
-                                        {{ errors.kategori }}
+                                    <div v-if="errors.bobot" class="alert alert-danger">
+                                        {{ errors.bobot }}
                                     </div>
                                     <div class="row">
                                         <div class="col-12">
@@ -89,9 +82,8 @@
 
             //define form with reactive
             const form = reactive({
-                rentang_awal: props.category.rentang_awal,
-                rentang_akhir: props.category.rentang_akhir,
-                kategori: props.category.kategori
+                deskripsi: props.category.deskripsi,
+                bobot: props.category.bobot
             });
 
             //method "submit"
@@ -101,9 +93,8 @@
                 Inertia.post(`/apps/categories/${props.category.id}`, {
                     //data
                     _method: 'PUT',
-                    rentang_awal: form.rentang_awal,
-                    rentang_akhir: form.rentang_akhir,
-                    kategori: form.kategori
+                    deskripsi: form.deskripsi,
+                    bobot: form.bobot
 
                 }, {
                     onSuccess: () => {

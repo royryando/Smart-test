@@ -15,17 +15,15 @@
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Rentang Awal</th>
-                                            <th scope="col">Rentang Akhir</th>
-                                            <th scope="col">Kategori</th>
+                                            <th scope="col">Deskripsi</th>
+                                            <th scope="col">Bobot</th>
                                             <th scope="col" style="width:20%">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr v-for="(category, index) in categories.data" :key="index">
-                                            <td>{{ category.rentang_awal }}</td>
-                                            <td>{{ category.rentang_akhir }}</td>
-                                            <td>{{ category.kategori }}</td>
+                                            <td>{{ category.deskripsi }}</td>
+                                            <td>{{ category.bobot }}</td>
                                             <td class="text-center">
                                                 <Link :href="`/apps/categories/${category.id}/edit`" v-if="hasAnyPermission(['kriteria.edit'])" class="btn btn-success btn-sm me-2"><i class="fa fa-pencil-alt me-1"></i> EDIT</Link>
                                             </td>
