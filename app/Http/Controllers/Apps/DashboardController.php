@@ -23,14 +23,10 @@ class DashboardController extends Controller
     {
 
         //count sales today
-        $count_customer = Customer::all()->count();
-
-        //sum sales today
-        $avarage_nilai = Profit::all()->sum('nilai');
+        $customer = Customer::all();
 
         return Inertia::render('Apps/Dashboard/Index', [
-            'count_customer'    => (int) $count_customer,
-            'avarage_nilai'      => (int) $avarage_nilai / $count_customer
+            'count_customer'    => $customer
         ]);
     }
 }

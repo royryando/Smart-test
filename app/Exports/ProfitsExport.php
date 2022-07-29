@@ -5,7 +5,7 @@ namespace App\Exports;
 use App\Models\Profit;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
-
+ 
 class ProfitsExport implements FromView
 {
     protected $start_date;
@@ -18,10 +18,9 @@ class ProfitsExport implements FromView
      * @param  mixed $end_date
      * @return void
      */
-    public function __construct($start_date, $end_date)
+    public function __construct()
     {
-        $this->start_date = $start_date;
-        $this->end_date   = $end_date;
+        
     }
     
     /**
@@ -32,7 +31,7 @@ class ProfitsExport implements FromView
     public function view(): View
     {
         return view('exports.profits', [
-            'profits' => Profit::with('customer')->whereDate('created_at', '>=', $this->start_date)->whereDate('created_at', '<=', $this->end_date)->get()
+            'profits' => Profit::with('customer')->get()
         ]);
     }
 }

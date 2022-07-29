@@ -100,7 +100,7 @@ class ProfitController extends Controller
      */
     public function export(Request $request)
     {
-        return Excel::download(new ProfitsExport($request->start_date, $request->end_date), 'profits : '.$request->start_date.' — '.$request->end_date.'.xlsx');
+        return Excel::download(new ProfitsExport(), 'Laporan Smart Test.xlsx');
     }
     
     /**
@@ -112,15 +112,12 @@ class ProfitController extends Controller
     public function pdf(Request $request)
     {
         //get data proftis by range date
-        $profits = Profit::with('customer')->whereDate('created_at', '>=', $request->start_date)->whereDate('created_at', '<=', $request->end_date)->get();
-
-        //get total profit by range date
-        // $total = Profit::whereDate('created_at', '>=', $request->start_date)->whereDate('created_at', '<=', $request->end_date)->sum('total');
+        $profits = Profit::with('customer')->get();
 
         //load view PDF with data
         $pdf = PDF::loadView('exports.profits', compact('profits'));
 
         //download PDF
-        return $pdf->download('profits : '.$request->start_date.' — '.$request->end_date.'.pdf');
+        return $pdf->download('Laporan Smart Test.pdf');
     }
 }
