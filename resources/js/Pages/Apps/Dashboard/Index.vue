@@ -15,11 +15,15 @@
                                 <span class="font-weight-bold"><strong> SMART TEST </strong></span>
                             </div>
                             <div class="card-body">
+<<<<<<< HEAD
                                 <p>Selamat Datang di Aplikasi Ranti</p>
+=======
+                                <p>Nama Welcome to LPK Yumnaa Arsy Kara</p>
+>>>>>>> 2989702dd7bf9b7c1699df6d882b46f7e615b8d0
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <!-- <div class="col-md-4">
 
                         <div v-if="hasAnyPermission(['dashboard.index'])" class="card border-0 rounded-3 shadow border-top-info mb-4">
                             <div class="card-header">
@@ -39,7 +43,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -68,19 +72,19 @@
         //layout
         layout: LayoutApp,
 
-        //register component
-        components: {
-            Head,
-            BarChart,
-            DoughnutChart
-        },
+        // //register component
+        // components: {
+        //     Head,
+        //     BarChart,
+        //     DoughnutChart
+        // },
 
-        props: {
-            //total penjualan hari ini
-            count_customer: Number,
-            //jumlah nilai
-            avarage_nilai: Number
-        },
+        // props: {
+        //     //total penjualan hari ini
+        //     count_customer: Number,
+        //     //jumlah nilai
+        //     avarage_nilai: Number
+        // },
 
         setup(props) {
 
