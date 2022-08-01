@@ -15,7 +15,7 @@
                                 <span class="font-weight-bold"><strong> SMART TEST </strong></span>
                             </div>
                             <div class="card-body">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident accusamus velit accusantium sit neque, mollitia repudiandae laudantium quia officia quos fugiat omnis vero iure possimus nemo voluptates assumenda soluta nobis.</p>
+                                <p>Selamat Datang di Aplikasi Ranti</p>
                             </div>
                         </div>
                     </div>
