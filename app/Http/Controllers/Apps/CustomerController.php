@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Apps;
 
 use Inertia\Inertia;
 use App\Models\Customer;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -55,7 +56,8 @@ class CustomerController extends Controller
             'jenis_kelamin' => 'required',
             'no_hp'   => 'required|unique:customers',
             'pendidikan' => 'required',
-            'no_ktp' => 'required|unique:customers'
+            'no_ktp' => 'required|unique:customers',
+            'asal_sekolah' => 'required'
             
         ]);
 
@@ -68,6 +70,8 @@ class CustomerController extends Controller
             'no_hp'   => $request->no_hp,
             'pendidikan' => $request->pendidikan,
             'no_ktp' => $request->no_ktp,
+            'tgl_register' => Carbon::now(),
+            'asal_sekolah' => $request->asal_sekolah
         ]);
 
         //redirect
@@ -106,7 +110,8 @@ class CustomerController extends Controller
             'jenis_kelamin' => 'required',
             'no_hp'   => 'required|unique:customers,no_hp,'.$customer->id,
             'pendidikan' => 'required',
-            'no_ktp' => 'required|unique:customers,no_ktp,'.$customer->id
+            'no_ktp' => 'required|unique:customers,no_ktp,'.$customer->id,
+            'asal_sekolah' => 'required'
         ]);
 
         //update customer
@@ -118,6 +123,7 @@ class CustomerController extends Controller
             'no_hp'   => $request->no_hp,
             'pendidikan' => $request->pendidikan,
             'no_ktp' => $request->no_ktp,
+            'asal_sekolah' => $request->asal_sekolah
         ]);
 
         //redirect

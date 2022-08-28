@@ -23,7 +23,10 @@ class DashboardController extends Controller
     {
 
         //count sales today
-        $customer = Customer::all();
+        $year = Carbon::now()->format('Y');
+        $customer = Customer::whereYear('tgl_register', '<=', $year)->whereYear('tgl_register', '>', $year - 1)->count();
+        // DB::table('customers')->where(DB::raw(YEAR('tgl_register')), $year)->count();
+        // $count = Flight::where('active', 1)->count();
 
         return Inertia::render('Apps/Dashboard/Index', [
             'count_customer'    => $customer

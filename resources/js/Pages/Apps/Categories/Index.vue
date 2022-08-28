@@ -30,7 +30,35 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <Pagination :links="categories.links" align="end"/>
+                                <!-- <Pagination :links="categories.links" align="end"/> -->
+                            </div>
+                        </div>
+                        <div class="card border-0 rounded-3 shadow border-top-purple">
+                            <div class="card-header">
+                                <span class="font-weight-bold"><i class="fa fa-folder"></i> Kategori</span>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Keterangan</th>
+                                            <th scope="col">Nilai Awal</th>
+                                            <th scope="col">Nilai Akhir</th>
+                                            <th scope="col" style="width:20%">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr v-for="(kriteria, index) in kriterias.data" :key="index">
+                                            <td>{{ kriteria.keterangan }}</td>
+                                            <td>{{ kriteria.nilai_awal }}</td>
+                                            <td>{{ kriteria.nilai_akhir }}</td>
+                                            <td class="text-center">
+                                                <Link :href="`/apps/categories/${kriteria.id}/editkriteria`" v-if="hasAnyPermission(['kriteria.edit'])" class="btn btn-success btn-sm me-2"><i class="fa fa-pencil-alt me-1"></i> EDIT</Link>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <!-- <Pagination :links="categories.links" align="end"/> -->
                             </div>
                         </div>
                     </div>
@@ -64,10 +92,12 @@
         //props
         props: {
             categories: Object,
+            kriterias: Object
         },
 
         //composition API
         setup() {
+            // console.log(props.categories);
 
         }
     }

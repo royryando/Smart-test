@@ -31,6 +31,7 @@
                                             <th scope="col">No Handphone</th>
                                             <th scope="col">Pendidikan</th>
                                             <th scope="col">KTP</th>
+                                            <th scope="col">Tanggal Register</th>
                                             <th scope="col" class="text-center" style="width:20%">Actions</th>
                                         </tr>
                                     </thead>
@@ -43,6 +44,7 @@
                                             <td>{{ customer.no_hp }}</td>
                                             <td>{{ customer.pendidikan }}</td>
                                             <td>{{ customer.no_ktp }}</td>
+                                            <td>{{ customer.tgl_register }}</td>
                                             <td class="text-center">
                                                 <Link :href="`/apps/customers/${customer.id}/edit`" v-if="hasAnyPermission(['peserta.edit'])" class="btn btn-success btn-sm me-2"><i class="fa fa-pencil-alt me-1"></i> EDIT</Link>
                                                 <button @click.prevent="destroy(customer.id)" v-if="hasAnyPermission(['peserta.delete'])" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> DELETE</button>
