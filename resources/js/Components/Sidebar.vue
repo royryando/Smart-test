@@ -42,7 +42,7 @@
         </li>
 
 
-        <!-- <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['hasil.index'])">REPORTS</li>
+        <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['hasil.index'])">REPORTS</li>
 
         <li class="c-sidebar-nav-item" v-if="hasAnyPermission(['hasil.index'])">
             <Link class="c-sidebar-nav-link" href="/apps/profits" :class="{ 'active': $page.url.startsWith('/apps/profits') }">
@@ -51,7 +51,7 @@
             </svg>
             <span class="ms-2">Hasil</span>
             </Link>
-        </li> -->
+        </li>
 
         <li class="c-sidebar-nav-title" v-if="hasAnyPermission(['roles.index']) || hasAnyPermission(['permissions.index']) || hasAnyPermission(['users.index'])">USER MANAGEMENT</li>
 

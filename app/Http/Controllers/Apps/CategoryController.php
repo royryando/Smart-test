@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Apps;
 
 use Inertia\Inertia;
 use App\Models\Category;
+use App\Models\Kriteria;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -22,9 +23,13 @@ class CategoryController extends Controller
         $categories = Category::when(request()->q, function($categories) {
             $categories = $categories->where('title', 'like', '%'. request()->q . '%');
         })->latest()->paginate(5);
+        $kriterias = Kriteria::when(request()->q, function($kriterias) {
+            $kriterias = $kriterias->where('title', 'like', '%'. request()->q . '%');
+        })->latest()->paginate(5);
         //return inertia
         return Inertia::render('Apps/Categories/Index', [
-            'categories' => $categories
+            'categories' => $categories,
+            'kriterias' => $kriterias
         ]);
     }
 
@@ -39,6 +44,13 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         return Inertia::render('Apps/Categories/Edit', [
             'category' => $category
+        ]);
+    }
+    public function editkriteria($id)
+    {
+        $kriteria = Kriteria::findOrFail($id);
+        return Inertia::render('Apps/Categories/EditKriteria', [
+            'kriteria' => $kriteria
         ]);
     }
 
@@ -57,6 +69,31 @@ class CategoryController extends Controller
             'deskripsi'      => $request->deskripsi,
             'bobot'     => $request->bobot,
         ]);
+
+        //redirect
+        return redirect()->route('apps.categories.index');
+    }
+
+    public function putkriteria($id,Request $request)
+    {
+        /**
+         * validate
+         */
+        $this->validate($request, [
+            'keterangan'             => 'required',
+            'nilai_awal'                 => 'required',
+            'nilai_akhir'                 => 'required',
+        ]);
+
+        //update product without image
+        // dd($request);
+        Kriteria::where('id', $id)
+                ->update([
+                    'keterangan' => $request->keterangan,
+                    'nilai_awal' => $request->nilai_awal,
+                    'nilai_akhir' => $request->nilai_akhir
+            ]);
+        
 
         //redirect
         return redirect()->route('apps.categories.index');

@@ -68,7 +68,18 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="fw-bold">Pendidikan</label>
-                                                <input class="form-control" v-model="form.pendidikan" :class="{ 'is-invalid': errors.pendidikan }" type="text" placeholder="Pendidikan">
+                                                <select class="form-select" :class="{ 'is-invalid': errors.pendidikan }" v-model="form.pendidikan">
+                                                    <option value="SD">SD</option>
+                                                    <option value="SMP">SMP</option>
+                                                    <option value="MTS">MTS</option>
+                                                    <option value="SMA">SMA</option>
+                                                    <option value="SMK">SMK</option>
+                                                    <option value="MA">MA</option>
+                                                    <option value="D3">D3</option>
+                                                    <option value="S1">S1</option>
+                                                    <option value="S2">S2</option>
+                                                    <option value="S3">S3</option>
+                                                </select>
                                             </div>
                                             <div v-if="errors.pendidikan" class="alert alert-danger">
                                                 {{ errors.pendidikan }}
@@ -77,10 +88,21 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="fw-bold">Nomor KTP</label>
-                                                <input class="form-control" v-model="form.no_ktp" :class="{ 'is-invalid': errors.no_telp }" type="text" placeholder="Nomor KTP">
+                                                <input class="form-control" v-model="form.no_ktp" :class="{ 'is-invalid': errors.no_ktp }" type="text" placeholder="Nomor KTP">
                                             </div>
                                             <div v-if="errors.no_ktp" class="alert alert-danger">
                                                 {{ errors.no_ktp }}
+                                            </div>
+                                        </div>
+                                    </div>                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="fw-bold">Asal Sekolah</label>
+                                                <input class="form-control" v-model="form.asal_sekolah" :class="{ 'is-invalid': errors.asal_sekolah }" type="text" placeholder="Asal Sekolah">
+                                            </div>
+                                            <div v-if="errors.asal_sekolah" class="alert alert-danger">
+                                                {{ errors.asal_sekolah }}
                                             </div>
                                         </div>
                                     </div>
@@ -143,7 +165,8 @@
                 jenis_kelamin: props.customer.jenis_kelamin,
                 no_hp: props.customer.no_hp,
                 pendidikan: props.customer.pendidikan,
-                no_ktp: props.customer.no_ktp
+                no_ktp: props.customer.no_ktp,
+                asal_sekolah: props.customer.asal_sekolah
             });
 
             //method "submit"
@@ -158,7 +181,8 @@
                     jenis_kelamin: form.jenis_kelamin,
                     no_hp: form.no_hp,
                     pendidikan: form.pendidikan,
-                    no_ktp: form.no_ktp
+                    no_ktp: form.no_ktp,
+                    asal_sekolah: form.asal_sekolah
                 }, {
                     onSuccess: () => {
                         //show success alert

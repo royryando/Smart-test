@@ -15,7 +15,7 @@ class Customer extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'tempat_tgl_lahir', 'alamat','jenis_kelamin','no_hp','pendidikan','no_ktp'
+        'name', 'tempat_tgl_lahir', 'alamat','jenis_kelamin','no_hp','pendidikan','no_ktp','tgl_register','asal_sekolah'
     ];
 
     public function products()

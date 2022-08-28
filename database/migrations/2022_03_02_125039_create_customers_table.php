@@ -22,6 +22,8 @@ return new class extends Migration
             $table->integer('no_hp');
             $table->string('pendidikan');
             $table->integer('no_ktp');
+            $table->date('tgl_register');
+            $table->string('asal_seklolah');
             $table->timestamps();
         });
     }

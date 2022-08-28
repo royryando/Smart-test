@@ -31,7 +31,9 @@ Route::prefix('apps')->group(function() {
 
         //route resource categories
         Route::resource('/categories', \App\Http\Controllers\Apps\CategoryController::class, ['as' => 'apps'])
-            ->middleware('permission:kriteria.index|kriteria.create|kriteria.edit|kriteria.delete');    
+            ->middleware('permission:kriteria.index|kriteria.create|kriteria.edit|kriteria.delete'); 
+        Route::get('/categories/{id}/editkriteria', [\App\Http\Controllers\Apps\CategoryController::class, 'editkriteria'])->name('apps.categories.editkriteria');
+        Route::put('/categories/{id}/putkriteria', [\App\Http\Controllers\Apps\CategoryController::class, 'putkriteria'])->name('apps.categories.putkriteria');
     
         //route resource products
         Route::resource('/products', \App\Http\Controllers\Apps\ProductController::class, ['as' => 'apps'])
