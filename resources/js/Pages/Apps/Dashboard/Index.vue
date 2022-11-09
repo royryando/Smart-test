@@ -7,26 +7,11 @@
     <main class="c-main">
         <div class="container-fluid">
             <div class="fade-in">
-
                 <div class="row">
-<<<<<<< HEAD
-                    <div class="col-md-8">
-                        <div v-if="hasAnyPermission(['dashboard.index'])" class="card border-0 rounded-3 shadow border-top-purple">
-                            <div class="card-header">
-                                <span class="font-weight-bold"><strong> SMART TEST </strong></span>
-                            </div>
-                            <div class="card-body">
-<<<<<<< HEAD
-                                <p>Selamat Datang di Aplikasi Ranti</p>
-=======
-                                <p>Nama Welcome to LPK Yumnaa Arsy Kara</p>
->>>>>>> 2989702dd7bf9b7c1699df6d882b46f7e615b8d0
-=======
                     <div class="col-12">
                         <div v-if="hasAnyPermission(['dashboard.index'])" class="card border-0 rounded-3 shadow border-top-info">
                             <div class="card-bod text-center">
                                 <p style="font-size: 24px; margin-top: 10px">Welcome to LPK Yumnaa Arsy Kara</p>
->>>>>>> 1c173c015ff423de12310d21e3308d188beec48b
                             </div>
                         </div>
                     </div>
