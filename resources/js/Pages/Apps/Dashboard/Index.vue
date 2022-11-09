@@ -10,7 +10,8 @@
                 <div class="row">
                     <div class="col-12">
                         <div v-if="hasAnyPermission(['dashboard.index'])" class="card border-0 rounded-3 shadow border-top-info">
-                            <div class="card-bod text-center">
+                            <div class="card-bod text-center d-inline">
+                                <img src="/images/yumnaa.png" style="margin-top: 20px" class="bg-light rounded shadow-sm p-1" width="100">
                                 <p style="font-size: 24px; margin-top: 10px">Welcome to LPK Yumnaa Arsy Kara</p>
                             </div>
                         </div>

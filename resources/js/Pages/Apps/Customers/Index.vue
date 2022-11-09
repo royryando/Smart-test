@@ -74,7 +74,7 @@
 
     //import ref from vue
     import { ref } from 'vue';
-    
+
     //import inertia adapter
     import { Inertia } from '@inertiajs/inertia';
 
@@ -106,10 +106,10 @@
             //define method search
             const handleSearch = () => {
                 Inertia.get('/apps/customers', {
-                    
+
                     //send params "q" with value from state "search"
                     q: search.value,
-                    
+
                 });
             }
             //method destroy

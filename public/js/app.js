@@ -24499,7 +24499,11 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   style: {
     "background": "#894b9d"
   }
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("         <img src=\"/images/cash-machine.png\" class=\"bg-light rounded shadow-sm p-1\" width=\"35\">"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "/images/yumnaa.png",
+  "class": "bg-light rounded shadow-sm p-1",
+  width: "35"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "ml-2 font-weight-bold"
 }, "SMART TEST")], -1 /* HOISTED */);
 var _hoisted_3 = {
@@ -25627,8 +25631,15 @@ var _hoisted_7 = {
   "class": "card border-0 rounded-3 shadow border-top-info"
 };
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "card-bod text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  "class": "card-bod text-center d-inline"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  src: "/images/yumnaa.png",
+  style: {
+    "margin-top": "20px"
+  },
+  "class": "bg-light rounded shadow-sm p-1",
+  width: "100"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
   style: {
     "font-size": "24px",
     "margin-top": "10px"
