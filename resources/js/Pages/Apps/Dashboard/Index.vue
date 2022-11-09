@@ -9,16 +9,15 @@
             <div class="fade-in">
 
                 <div class="row">
-                    <div class="col-md-8">
-                        <div v-if="hasAnyPermission(['dashboard.index'])" class="card border-0 rounded-3 shadow border-top-purple">
-                            <div class="card-header">
-                                <span class="font-weight-bold"><strong> SMART TEST </strong></span>
-                            </div>
-                            <div class="card-body">
-                                <p>Nama Welcome to LPK Yumnaa Arsy Kara</p>
+                    <div class="col-12">
+                        <div v-if="hasAnyPermission(['dashboard.index'])" class="card border-0 rounded-3 shadow border-top-info">
+                            <div class="card-bod text-center">
+                                <p style="font-size: 24px; margin-top: 10px">Welcome to LPK Yumnaa Arsy Kara</p>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-md-4">
                         <div v-if="hasAnyPermission(['dashboard.index'])" class="card border-0 rounded-3 shadow border-top-info mb-4">
                             <div class="card-header">

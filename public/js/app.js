@@ -23015,10 +23015,13 @@ __webpack_require__.r(__webpack_exports__);
   //props
   props: {
     errors: Object,
-    profits: Array
+    profits: Array,
+    customers: Array,
+    products: Object,
+    penilaian_view: Array
   },
   //composition API
-  setup: function setup() {
+  setup: function setup(props) {
     //define state
     var start_date = (0,vue__WEBPACK_IMPORTED_MODULE_2__.ref)( false || new URL(document.location).searchParams.get('start_date'));
     var end_date = (0,vue__WEBPACK_IMPORTED_MODULE_2__.ref)( false || new URL(document.location).searchParams.get('end_date'));
@@ -24493,9 +24496,9 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   style: {
     "background": "#894b9d"
   }
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <img src=\"/images/cash-machine.png\" class=\"bg-light rounded shadow-sm p-1\" width=\"35\">  "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("         <img src=\"/images/cash-machine.png\" class=\"bg-light rounded shadow-sm p-1\" width=\"35\">"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "ml-2 font-weight-bold"
-}, "APLIKASI SMART TEST")], -1 /* HOISTED */);
+}, "SMART TEST")], -1 /* HOISTED */);
 var _hoisted_3 = {
   "class": "c-wrapper c-fixed-components"
 };
@@ -24508,7 +24511,7 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "col-9"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "col-3"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, "APLIKASI SMART TEST")])], -1 /* HOISTED */);
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, "SMART TEST")])], -1 /* HOISTED */);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Sidebar = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Sidebar");
@@ -25614,21 +25617,24 @@ var _hoisted_5 = {
   "class": "row"
 };
 var _hoisted_6 = {
-  "class": "col-md-8"
+  "class": "col-12"
 };
 var _hoisted_7 = {
   key: 0,
-  "class": "card border-0 rounded-3 shadow border-top-purple"
+  "class": "card border-0 rounded-3 shadow border-top-info"
 };
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "card-header"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "font-weight-bold"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, " SMART TEST ")])], -1 /* HOISTED */);
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "card-body"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Nama Welcome to LPK Yumnaa Arsy Kara")], -1 /* HOISTED */);
-var _hoisted_10 = [_hoisted_8, _hoisted_9];
+  "class": "card-bod text-center"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
+  style: {
+    "font-size": "24px",
+    "margin-top": "10px"
+  }
+}, "Welcome to LPK Yumnaa Arsy Kara")], -1 /* HOISTED */);
+var _hoisted_9 = [_hoisted_8];
+var _hoisted_10 = {
+  "class": "row"
+};
 var _hoisted_11 = {
   "class": "col-md-4"
 };
@@ -25653,7 +25659,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return [_hoisted_1];
     }),
     _: 1 /* STABLE */
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_ctx.hasAnyPermission(['dashboard.index']) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, _hoisted_10)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_ctx.hasAnyPermission(['dashboard.index']) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.count_customer), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" PESERTA ")])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div v-if=\"hasAnyPermission(['dashboard.index'])\" class=\"card border-0 rounded-3 shadow border-top-success\">\n                            <div class=\"card-header\">\n                                <span class=\"font-weight-bold\"><i class=\"fa fa-chart-bar\"></i> AVARAGE NILAI</span>\n                            </div>\n                            <div class=\"card-body\">\n                                <h5 class=\"fw-bold\">{{ avarage_nilai }}</h5>\n                            </div>\n                        </div> ")])])])])])], 64 /* STABLE_FRAGMENT */);
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_ctx.hasAnyPermission(['dashboard.index']) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_7, _hoisted_9)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_ctx.hasAnyPermission(['dashboard.index']) ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("strong", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.count_customer), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" PESERTA ")])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div v-if=\"hasAnyPermission(['dashboard.index'])\" class=\"card border-0 rounded-3 shadow border-top-success\">\n                            <div class=\"card-header\">\n                                <span class=\"font-weight-bold\"><i class=\"fa fa-chart-bar\"></i> AVARAGE NILAI</span>\n                            </div>\n                            <div class=\"card-body\">\n                                <h5 class=\"fw-bold\">{{ avarage_nilai }}</h5>\n                            </div>\n                        </div> ")])])])])])], 64 /* STABLE_FRAGMENT */);
 }
 
 /***/ }),

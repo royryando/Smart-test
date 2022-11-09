@@ -102,11 +102,14 @@
         //props
         props: {
             errors: Object,
-            profits: Array
+            profits: Array,
+            customers: Array,
+            products: Object,
+            penilaian_view: Array
         },
 
         //composition API
-        setup() {
+        setup(props) {
 
             //define state
             const start_date = ref('' || (new URL(document.location)).searchParams.get('start_date'));
