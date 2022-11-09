@@ -24,12 +24,34 @@ class DashboardController extends Controller
 
         //count sales today
         $year = Carbon::now()->format('Y');
-        $customer = Customer::whereYear('tgl_register', '<=', $year)->whereYear('tgl_register', '>', $year - 1)->count();
+        $count_customer = Customer::whereYear('tgl_register', '<=', $year)->whereYear('tgl_register', '>', $year - 1)->count();
         // DB::table('customers')->where(DB::raw(YEAR('tgl_register')), $year)->count();
         // $count = Flight::where('active', 1)->count();
 
-        return Inertia::render('Apps/Dashboard/Index', [
-            'count_customer'    => $customer
-        ]);
+        $profits = Profit::whereYear('created_at', '<=', $year)->whereYear('created_at', '>', $year - 1)
+            ->orderBy('id', 'DESC')
+            ->distinct('customer_id')
+            ->get()
+            ->unique('customer_id');
+
+        $count_lulus = 0;
+        $count_tidak_lulus = 0;
+        $count_dipertimbangkan = 0;
+        foreach ($profits as $profit) {
+            switch ($profit->kategori) {
+                case 'Lulus':
+                    $count_lulus++;
+                    break;
+                case 'Tidak Lulus':
+                    $count_tidak_lulus++;
+                    break;
+                case 'Dipertimbangkan':
+                    $count_dipertimbangkan++;
+                    break;
+            }
+        }
+
+        return Inertia::render('Apps/Dashboard/Index', compact(
+            'count_customer', 'count_lulus', 'count_tidak_lulus', 'count_dipertimbangkan'));
     }
 }

@@ -26,14 +26,36 @@
                                 <strong>{{ count_customer }}</strong> PESERTA
                             </div>
                         </div>
-                        <!-- <div v-if="hasAnyPermission(['dashboard.index'])" class="card border-0 rounded-3 shadow border-top-success">
+                    </div>
+                    <div class="col-md-4">
+                        <div v-if="hasAnyPermission(['dashboard.index'])" class="card border-0 rounded-3 shadow border-top-info mb-4">
                             <div class="card-header">
-                                <span class="font-weight-bold"><i class="fa fa-chart-bar"></i> AVARAGE NILAI</span>
+                                <span class="font-weight-bold"><i class="fa fa-chart-line"></i> JUMLAH PESERTA LULUS</span>
                             </div>
                             <div class="card-body">
-                                <h5 class="fw-bold">{{ avarage_nilai }}</h5>
+                                <strong>{{ count_lulus }}</strong> PESERTA
                             </div>
-                        </div> -->
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div v-if="hasAnyPermission(['dashboard.index'])" class="card border-0 rounded-3 shadow border-top-info mb-4">
+                            <div class="card-header">
+                                <span class="font-weight-bold"><i class="fa fa-chart-line"></i> JUMLAH PESERTA TIDAK LULUS</span>
+                            </div>
+                            <div class="card-body">
+                                <strong>{{ count_tidak_lulus }}</strong> PESERTA
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div v-if="hasAnyPermission(['dashboard.index'])" class="card border-0 rounded-3 shadow border-top-info mb-4">
+                            <div class="card-header">
+                                <span class="font-weight-bold"><i class="fa fa-chart-line"></i> JUMLAH PESERTA DIPERTIMBANGKAN</span>
+                            </div>
+                            <div class="card-body">
+                                <strong>{{ count_dipertimbangkan }}</strong> PESERTA
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -73,6 +95,9 @@
         props: {
             //total penjualan hari ini
             count_customer: Number,
+            count_lulus: Number,
+            count_tidak_lulus: Number,
+            count_dipertimbangkan: Number,
             //jumlah nilai
         },
 
