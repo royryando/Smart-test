@@ -137,7 +137,7 @@ class ProductController extends Controller
         //find by ID
         $product = Product::findOrFail($id);
 
-        
+
 
         //remove image
         // Storage::disk('local')->delete('public/products/'.basename($product->image));
@@ -149,5 +149,5 @@ class ProductController extends Controller
         return redirect()->route('apps.products.index');
     }
 
-    
+
 }

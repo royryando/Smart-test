@@ -24,10 +24,34 @@ class ProfitController extends Controller
     public function index()
     {
         $customer= Profit::with('customer')->get();
-        return Inertia::render('Apps/Products/Index', [
-            'laporan' => $customer
+        $penilaian_view= Product::with('customer')->get();
+        $products = Product::when(request()->q, function($products) {
+            $products = $products->where('title', 'like', '%'. request()->q . '%');
+        })->latest()->paginate(5);
+        $profits= Profit::with('customer')->get();
+        return Inertia::render('Apps/Profits/Index', [
+            'laporan' => $customer,
+            'penilaian_view' => $penilaian_view,
+            'products' => $products,
+            'profits' => $profits
         ]);
     }
+
+    public function filter() {
+        $customer= Profit::with('customer')->get();
+        $penilaian_view= Product::with('customer')->get();
+        $products = Product::when(request()->q, function($products) {
+            $products = $products->where('title', 'like', '%'. request()->q . '%');
+        })->latest()->paginate(5);
+        $profits= Profit::with('customer')->get();
+        return Inertia::render('Apps/Profits/Index', [
+            'laporan' => $customer,
+            'penilaian_view' => $penilaian_view,
+            'products' => $products,
+            'profits' => $profits
+        ]);
+    }
+
     public function clear ()
     {
         $clear = Profit::truncate();
@@ -49,7 +73,7 @@ class ProfitController extends Controller
         $min_tes_matematika = DB::table('products')->min('tes_matematika');
         $min_tes_bahasa = DB::table('products')->min('tes_bahasa');
 
-        // calculate value bobot kriteria 
+        // calculate value bobot kriteria
         $jumlah_nilai_bobot = (int)DB::table('categories')->sum('bobot');
         $nilai_bobot_kelengkapan_administrasi =(int) DB::table('categories')->select('bobot')->where('id','=','1')->sum('bobot');
         $nilai_bobot_tes_fisik = (int) Category::select('bobot')->where('id','=','2')->sum('bobot');
@@ -73,7 +97,7 @@ class ProfitController extends Controller
                     $kategori = $kriteria->keterangan;
                 }
             }
-            
+
             Profit::create([
                 'customer_id'                   => $nilai_user->customer_id,
                 'product_id'                    => $nilai_user->id,
@@ -85,7 +109,7 @@ class ProfitController extends Controller
         //redirect
         return redirect()->route('apps.products.index');
     }
-    
+
 
     /**
      * export
@@ -97,7 +121,7 @@ class ProfitController extends Controller
     {
         return Excel::download(new ProfitsExport(), 'Laporan Smart Test.xlsx');
     }
-    
+
     /**
      * pdf
      *

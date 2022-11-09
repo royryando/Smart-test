@@ -2,8 +2,8 @@
   <div class="c-app">
     <div class="c-sidebar c-sidebar-dark c-sidebar-fixed" :class="{ 'c-sidebar-lg-show': !$page.url.startsWith('/apps/transactions') }" id="sidebar">
       <div class="c-sidebar-brand d-lg-down-none" style="background: #894b9d;">
-        <!-- <img src="/images/cash-machine.png" class="bg-light rounded shadow-sm p-1" width="35">  -->
-        <span class="ml-2 font-weight-bold">APLIKASI SMART TEST</span>
+<!--         <img src="/images/cash-machine.png" class="bg-light rounded shadow-sm p-1" width="35">-->
+        <span class="ml-2 font-weight-bold">SMART TEST</span>
       </div>
 
       <!-- sidebar -->
@@ -12,7 +12,7 @@
 
     </div>
     <div class="c-wrapper c-fixed-components">
-      
+
       <!-- header -->
       <Header />
       <!-- end header -->
@@ -24,12 +24,12 @@
         <!-- end content -->
 
         <footer class="c-footer">
-          
+
           <div class="col-9"></div>
           <div class="col-3">
-            <strong >APLIKASI SMART TEST</strong>
+            <strong >SMART TEST</strong>
           </div>
-          
+
         </footer>
       </div>
     </div>
