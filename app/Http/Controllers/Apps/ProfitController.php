@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Apps;
 
+use Carbon\Carbon;
 use Inertia\Inertia;
 use App\Models\Profit;
 use App\Models\Product;
@@ -37,13 +38,15 @@ class ProfitController extends Controller
         ]);
     }
 
-    public function filter() {
+    public function filter(Request $request) {
+        $start = Carbon::make($request->input('start_date'));
+        $end = Carbon::make($request->input('end_date'))->setTime(23, 59, 59);
         $customer= Profit::with('customer')->get();
         $penilaian_view= Product::with('customer')->get();
         $products = Product::when(request()->q, function($products) {
             $products = $products->where('title', 'like', '%'. request()->q . '%');
         })->latest()->paginate(5);
-        $profits= Profit::with('customer')->get();
+        $profits= Profit::whereBetween('created_at', [$start, $end])->with('customer')->get();
         return Inertia::render('Apps/Profits/Index', [
             'laporan' => $customer,
             'penilaian_view' => $penilaian_view,
