@@ -11,11 +11,18 @@
                 </a>
             </div>
             <div class="card-group">
-                <div class="card border-top-purple border-0 shadow-sm rounded-3">
+                <div class="card border-top-info border-0 shadow-sm rounded-3">
                     <div class="card-body">
-                        <div class="text-start">
-                            <h5>LOGIN ACCOUNT</h5>
-                            <p class="text-muted">Sign In to your account</p>
+                        <div class="row">
+                            <div class="col-auto">
+                                <img src="/images/yumnaa.png" alt="Logo" width="60" height="60">
+                            </div>
+                            <div class="col">
+                                <div class="text-start">
+                                    <h5>LOGIN ACCOUNT</h5>
+                                    <p class="text-muted">Sign In to your account</p>
+                                </div>
+                            </div>
                         </div>
                         <hr>
                         <div v-if="session.status" class="alert alert-success mt-2">
@@ -49,7 +56,7 @@
                                     <Link href="/forgot-password">Forgot Password?</Link>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary shadow-sm rounded-sm px-4 w-100" type="submit">LOGIN</button>
+                                    <button class="btn btn-info shadow-sm rounded-sm px-4 w-100" type="submit">LOGIN</button>
                                 </div>
                             </div>
                         </form>

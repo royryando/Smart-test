@@ -7,7 +7,7 @@
             <div class="fade-in">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card border-0 rounded-3 shadow border-top-purple">
+                        <div class="card border-0 rounded-3 shadow border-top-info">
                             <div class="card-header">
                                 <span class="font-weight-bold"><i class="fa fa-shopping-bag"></i> Tambah Nilai</span>
                             </div>
@@ -66,7 +66,7 @@
 
                                     <div class="row">
                                         <div class="col-12">
-                                            <button class="btn btn-primary shadow-sm rounded-sm" type="submit">SAVE</button>
+                                            <button class="btn btn-info shadow-sm rounded-sm" type="submit">SAVE</button>
                                             <button class="btn btn-warning shadow-sm rounded-sm ms-3" type="reset">RESET</button>
                                         </div>
                                     </div>
@@ -75,10 +75,10 @@
                             <div class="card-body">
                                 <form @submit.prevent="handleSearch">
                                     <div class="input-group mb-3">
-                                        <Link href="/apps/products/create" v-if="hasAnyPermission(['nilai.create'])" class="btn btn-primary input-group-text"> <i class="fa fa-plus-circle me-2"></i> INPUT NILAI</Link>
+                                        <Link href="/apps/products/create" v-if="hasAnyPermission(['nilai.create'])" class="btn btn-info input-group-text"> <i class="fa fa-plus-circle me-2"></i> INPUT NILAI</Link>
                                         <input type="text" class="form-control" v-model="search" placeholder="search by product title...">
 
-                                        <button class="btn btn-primary input-group-text" type="submit"> <i class="fa fa-search me-2"></i> SEARCH</button>
+                                        <button class="btn btn-info input-group-text" type="submit"> <i class="fa fa-search me-2"></i> SEARCH</button>
 
                                     </div>
                                 </form>
@@ -103,7 +103,7 @@
                                             <td class="text-center">
                                                 <Link :href="`/apps/products/${penilaian.id}/edit`" v-if="hasAnyPermission(['nilai.edit'])" class="btn btn-success btn-sm me-2"><i class="fa fa-pencil-alt me-1"></i> EDIT</Link>
                                                 <button @click.prevent="destroy(penilaian.id)" v-if="hasAnyPermission(['nilai.delete'])" class="btn btn-danger btn-sm me-2"><i class="fa fa-trash me-1"></i> DELETE</button>
-                                                <button @click.prevent="proses(penilaian.id)" v-if="hasAnyPermission(['nilai.delete'])" class="btn btn-primary btn-sm"><i class="fa fa-check"></i> PROSES</button>
+                                                <button @click.prevent="proses(penilaian.id)" v-if="hasAnyPermission(['nilai.delete'])" class="btn btn-info btn-sm"><i class="fa fa-check"></i> PROSES</button>
                                             </td>
                                         </tr>
                                     </tbody>

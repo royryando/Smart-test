@@ -7,7 +7,7 @@
             <div class="fade-in">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card border-0 rounded-3 shadow border-top-purple">
+                        <div class="card border-0 rounded-3 shadow border-top-info">
                             <div class="card-header">
                                 <span class="font-weight-bold"><i class="fa fa-shield-alt"></i> ROLES</span>
                             </div>
@@ -15,11 +15,11 @@
                                 <form @submit.prevent="handleSearch">
                                     <div class="input-group mb-3">
                                         
-                                        <Link href="/apps/roles/create" v-if="hasAnyPermission(['roles.create'])" class="btn btn-primary input-group-text"> <i class="fa fa-plus-circle me-2"></i> NEW</Link>
+                                        <Link href="/apps/roles/create" v-if="hasAnyPermission(['roles.create'])" class="btn btn-info input-group-text"> <i class="fa fa-plus-circle me-2"></i> NEW</Link>
                                        
                                         <input type="text" class="form-control" v-model="search" placeholder="search by role name...">
 
-                                        <button class="btn btn-primary input-group-text" type="submit"> <i class="fa fa-search me-2"></i> SEARCH</button>
+                                        <button class="btn btn-info input-group-text" type="submit"> <i class="fa fa-search me-2"></i> SEARCH</button>
 
                                     </div>
                                 </form>

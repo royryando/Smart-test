@@ -7,7 +7,7 @@
             <div class="fade-in">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card border-0 rounded-3 shadow border-top-purple">
+                        <div class="card border-0 rounded-3 shadow border-top-info">
                             <div class="card-header mt-4 mb-2">
                                 <span class="font-weight-bold">Tambah Nilai</span>
                             </div>
@@ -66,7 +66,7 @@
 
                                     <div class="row">
                                         <div class="col-12">
-                                            <button class="btn btn-primary shadow-sm rounded-sm" type="submit">SAVE</button>
+                                            <button class="btn btn-info shadow-sm rounded-sm" type="submit">SAVE</button>
                                             <button class="btn btn-warning shadow-sm rounded-sm ms-3" type="reset">RESET</button>
                                         </div>
                                     </div>
@@ -103,7 +103,7 @@
                                 </table>
                                 <div v-if="penilaian_view.length != 0" class="row">
                                     <div class="col-12">
-                                        <button @click.prevent="proses()" v-if="hasAnyPermission(['nilai.delete'])" class="btn btn-primary btn-sm"><i class="fa fa-check"></i> PROSES</button>
+                                        <button @click.prevent="proses()" v-if="hasAnyPermission(['nilai.delete'])" class="btn btn-info btn-sm"><i class="fa fa-check"></i> PROSES</button>
                                     </div>
                                 </div>
                                     

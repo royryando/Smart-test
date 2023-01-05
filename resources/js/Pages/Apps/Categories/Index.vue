@@ -7,7 +7,7 @@
             <div class="fade-in">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card border-0 rounded-3 shadow border-top-purple">
+                        <div class="card border-0 rounded-3 shadow border-top-info">
                             <div class="card-header">
                                 <span class="font-weight-bold"><i class="fa fa-folder"></i> Kriteria</span>
                             </div>
@@ -33,7 +33,7 @@
                                 <!-- <Pagination :links="categories.links" align="end"/> -->
                             </div>
                         </div>
-                        <div class="card border-0 rounded-3 shadow border-top-purple">
+                        <div class="card border-0 rounded-3 shadow border-top-info">
                             <div class="card-header">
                                 <span class="font-weight-bold"><i class="fa fa-folder"></i> Kategori</span>
                             </div>

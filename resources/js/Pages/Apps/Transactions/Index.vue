@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="text-end mt-4">
                                     <button class="btn btn-warning btn-md border-0 shadow text-uppercase me-2">Cancel</button>
-                                    <button @click.prevent="storeTransaction" class="btn btn-purple btn-md border-0 shadow text-uppercase" :disabled="cash < grandTotal || grandTotal == 0">Pay Order & Print</button>
+                                    <button @click.prevent="storeTransaction" class="btn btn-info btn-md border-0 shadow text-uppercase" :disabled="cash < grandTotal || grandTotal == 0">Pay Order & Print</button>
                                 </div>
                             </div>
                         </div>

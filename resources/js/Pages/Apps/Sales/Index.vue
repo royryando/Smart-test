@@ -7,7 +7,7 @@
             <div class="fade-in">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card border-0 rounded-3 shadow border-top-purple">
+                        <div class="card border-0 rounded-3 shadow border-top-info">
                             <div class="card-header">
                                 <span class="font-weight-bold"><i class="fa fa-chart-bar"></i> REPORT SALES</span>
                             </div>
@@ -35,7 +35,7 @@
                                         <div class="col-md-2">
                                             <div class="mb-3">
                                                 <label class="form-label fw-bold text-white">*</label>
-                                                <button class="btn btn-md btn-purple border-0 shadow w-100"><i class="fa fa-filter"></i> FILTER</button>
+                                                <button class="btn btn-md btn-info border-0 shadow w-100"><i class="fa fa-filter"></i> FILTER</button>
                                             </div>
                                         </div>
                                     </div>

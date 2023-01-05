@@ -7,7 +7,7 @@
             <div class="fade-in">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card border-0 rounded-3 shadow border-top-purple">
+                        <div class="card border-0 rounded-3 shadow border-top-info">
                             <div class="card-header">
                                 <span class="font-weight-bold"><i class="fa fa-folder"></i> Edit Kriteria</span>
                             </div>
@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-12">
-                                            <button class="btn btn-primary shadow-sm rounded-sm" type="submit">UPDATE</button>
+                                            <button class="btn btn-info shadow-sm rounded-sm" type="submit">UPDATE</button>
                                             <button class="btn btn-warning shadow-sm rounded-sm ms-3" type="reset">RESET</button>
                                         </div>
                                     </div>

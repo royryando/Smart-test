@@ -11,7 +11,7 @@
                 </a>
             </div>
             <div class="card-group">
-                <div class="card border-top-purple border-0 shadow-sm rounded-3">
+                <div class="card border-top-info border-0 shadow-sm rounded-3">
                     <div class="card-body">
                         <div class="text-start">
                             <h5>UPDATE PASSWORD</h5>
@@ -53,7 +53,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12">
-                                    <button class="btn btn-primary shadow-sm rounded-sm px-4 w-100" type="submit">UPDATE PASSWORD</button>
+                                    <button class="btn btn-info shadow-sm rounded-sm px-4 w-100" type="submit">UPDATE PASSWORD</button>
                                 </div>
                             </div>
                         </form>

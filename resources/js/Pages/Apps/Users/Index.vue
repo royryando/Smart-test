@@ -7,7 +7,7 @@
             <div class="fade-in">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card border-0 rounded-3 shadow border-top-purple">
+                        <div class="card border-0 rounded-3 shadow border-top-info">
                             <div class="card-header">
                                 <span class="font-weight-bold"><i class="fa fa-users"></i> USERS</span>
                             </div>
@@ -15,11 +15,11 @@
                                 <form @submit.prevent="handleSearch">
                                     <div class="input-group mb-3">
 
-                                        <Link href="/apps/users/create" v-if="hasAnyPermission(['users.create'])" class="btn btn-primary input-group-text"> <i class="fa fa-plus-circle me-2"></i> NEW</Link>
-                                        
+                                        <Link href="/apps/users/create" v-if="hasAnyPermission(['users.create'])" class="btn btn-info input-group-text"> <i class="fa fa-plus-circle me-2"></i> NEW</Link>
+
                                         <input type="text" class="form-control" v-model="search" placeholder="search by user name...">
 
-                                        <button class="btn btn-primary input-group-text" type="submit"> <i class="fa fa-search me-2"></i> SEARCH</button>
+                                        <button class="btn btn-info input-group-text" type="submit"> <i class="fa fa-search me-2"></i> SEARCH</button>
 
                                     </div>
                                 </form>
@@ -37,7 +37,7 @@
                                             <td>{{ user.name }}</td>
                                             <td>{{ user.email }}</td>
                                             <td>
-                                                <span v-for="(role, index) in user.roles" :key="index" class="badge badge-primary shadow border-0 ms-2 mb-2">
+                                                <span v-for="(role, index) in user.roles" :key="index" class="badge badge-info shadow border-0 ms-2 mb-2">
                                                     {{ role.name }}
                                                 </span>
                                             </td>
@@ -70,7 +70,7 @@
 
     //import ref from vue
     import { ref } from 'vue';
-    
+
     //import inertia adapter
     import { Inertia } from '@inertiajs/inertia';
 
@@ -101,7 +101,7 @@
             //define method search
             const handleSearch = () => {
                 Inertia.get('/apps/users', {
-                    
+
                     //send params "q" with value from state "search"
                     q: search.value,
                 });
