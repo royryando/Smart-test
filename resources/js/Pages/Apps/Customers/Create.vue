@@ -87,8 +87,8 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label class="fw-bold">Nomor KTP</label>
-                                                <input class="form-control" v-model="form.no_ktp" :class="{ 'is-invalid': errors.no_telp }" type="text" placeholder="Nomor KTP">
+                                                <label class="fw-bold">Jenis Program</label>
+                                                <input class="form-control" v-model="form.no_ktp" :class="{ 'is-invalid': errors.no_telp }" type="text" placeholder="Jenis Program">
                                             </div>
                                             <div v-if="errors.no_ktp" class="alert alert-danger">
                                                 {{ errors.no_ktp }}
@@ -129,7 +129,7 @@
 
     //import Heade and Link from Inertia
     import { Head, Link } from '@inertiajs/inertia-vue3';
-    
+
     //import reactive from vue
     import { reactive } from 'vue';
 

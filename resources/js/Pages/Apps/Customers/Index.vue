@@ -30,7 +30,7 @@
                                             <th scope="col">Jenis Kelamin</th>
                                             <th scope="col">No Handphone</th>
                                             <th scope="col">Pendidikan</th>
-                                            <th scope="col">KTP</th>
+                                            <th scope="col">Jenis program</th>
                                             <th scope="col">Tanggal Register</th>
                                             <th scope="col" class="text-center" style="width:20%">Actions</th>
                                         </tr>
