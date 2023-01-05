@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card border-0 rounded-3 shadow border-top-info">
-                            <div class="card-header mt-4 mb-2">
+                            <div class="card-header mb-2">
                                 <span class="font-weight-bold">Tambah Nilai</span>
                             </div>
                             <div class="card-body">
@@ -85,7 +85,7 @@
                                             <th scope="col">Tes Matematika</th>
                                             <th scope="col">Tes Bahasa</th>
                                             <th scope="col" class="text-center" style="width:30%">Actions</th>
-                                        </tr>   
+                                        </tr>
                                     </thead>
                                     <tbody>
                                         <tr v-for="penilaian in penilaian_view" :key="penilaian.id">
@@ -106,10 +106,10 @@
                                         <button @click.prevent="proses()" v-if="hasAnyPermission(['nilai.delete'])" class="btn btn-info btn-sm"><i class="fa fa-check"></i> PROSES</button>
                                     </div>
                                 </div>
-                                    
+
                                 <Pagination :links="products.links" align="end"/>
                             </div>
-                            
+
                             <div class="card-header mt-4 mb-2">
                                 <span class="font-weight-bold">Hasil Nilai</span>
                             </div>
@@ -153,7 +153,7 @@
 
     //import Heade and Link from Inertia
     import { Head, Link } from '@inertiajs/inertia-vue3';
-    
+
     //import reactive from vue
     import { reactive } from 'vue';
 
@@ -278,10 +278,10 @@
                                 timer: 2000,
                                 showConfirmButton: false,
                             });
-                                
-                        }                        
+
+                        }
                     })
-                    
+
             }
             const clear = () => {
                 Swal.fire({
@@ -303,10 +303,10 @@
                                 timer: 2000,
                                 showConfirmButton: false,
                             });
-                                
-                        }                        
+
+                        }
                     })
-                    
+
             }
 
             return {

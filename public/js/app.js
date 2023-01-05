@@ -26321,7 +26321,7 @@ var _hoisted_7 = {
   "class": "card border-0 rounded-3 shadow border-top-info"
 };
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "card-header mt-4 mb-2"
+  "class": "card-header mb-2"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "font-weight-bold"
 }, "Tambah Nilai")], -1 /* HOISTED */);
